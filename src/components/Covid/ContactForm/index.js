@@ -14,7 +14,7 @@ function ContactForm() {
   return (
     <Container>
 
-      <BtnContri to="/coronavirus">
+      <BtnContri to="/">
         Outras Cidades
       </BtnContri>
 
