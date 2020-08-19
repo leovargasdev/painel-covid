@@ -17,7 +17,7 @@ const CovidPageBlumenau = () => {
   const data = handleDataSimpleSheetsCovid({ covidSheet, statusCases });
 
   return (
-    <LayoutCovid city="Blumenau">
+    <LayoutCovid city="Blumenau" route="blumenau">
       <Covid name="blumenau" data={data} fonte={fonte} flagImage={flagImage} />
     </LayoutCovid>
   );

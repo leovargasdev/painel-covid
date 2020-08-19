@@ -44,8 +44,8 @@ export const Footer = styled.footer`
   svg {
     color: ${({ theme }) => theme.secondary};
     margin-left: 4px;
-    width: 14px;
-    height: 14px;
+    width: 20px;
+    height: 20px;
   }
 
   ${media.lessThan('large')`
@@ -56,8 +56,9 @@ export const Footer = styled.footer`
       font-size: 11px;
 
       svg {
-        width: 11px;
-        height: 11px;
+        margin-left: 6px;
+        width: 14px;
+        height: 14px;
       }
     }
   `}

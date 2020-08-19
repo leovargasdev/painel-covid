@@ -1,36 +1,38 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Doughnut } from 'react-chartjs-2';
-import { FaUserInjured, FaCross, FaUser, FaUserClock } from 'react-icons/fa';
+import { FaUserInjured, FaCross, FaUser, FaUserSecret } from 'react-icons/fa';
+import { useTheme } from 'styled-components';
 
 import { Container, Chart, RightPanel, ItemPanel } from './styles';
-import colors from '~/styles/colors';
+// import colors from '~/styles/colors';
 
 const StatusCovid = ({ data: { recovered, deaths, suspected, discarded, actives } }) => {
+  const theme = useTheme();
   const itemsPanel = useMemo(() => [
     {
       icon: <FaUserInjured />,
       value: recovered,
       legend: 'Curados',
-      color: colors.recovered
+      color: theme.green
     },
     {
       icon: <FaUser />,
       value: actives,
       legend: 'Ativos',
-      color: colors.active
+      color: theme.red
     },
     {
-      icon: <FaUserClock />,
+      icon: <FaUserSecret />,
       value: suspected,
       legend: 'Suspeitos',
-      color: colors.suspect
+      color: theme.yellow
     },
     {
       icon: <FaCross />,
       value: deaths,
       legend: 'Óbitos',
-      color: colors.death
+      color: theme.purple
     }
   ], [recovered, deaths, suspected, discarded, actives]);
 
@@ -40,11 +42,11 @@ const StatusCovid = ({ data: { recovered, deaths, suspected, discarded, actives 
       data: [recovered, actives, suspected, deaths, discarded],
       borderWidth: 2,
       backgroundColor: [
-        colors.recovered,
-        colors.active,
-        colors.suspect,
-        colors.death,
-        colors.discarded
+        theme.green,
+        theme.red,
+        theme.yellow,
+        theme.purple,
+        theme.blue
       ]
     }]
   };
@@ -52,11 +54,11 @@ const StatusCovid = ({ data: { recovered, deaths, suspected, discarded, actives 
   return (
     <Container>
       <Chart>
-        <Doughnut data={data} />
+        <Doughnut data={data} options={{ legend: { labels: { fontColor: '#dedede' } } }} />
       </Chart>
       <RightPanel>
         {itemsPanel.map((item) => (
-          <ItemPanel key={item.legend} color={item.color} case={item.legend}>
+          <ItemPanel key={item.legend} color={item.color}>
             {item.icon}
             <div>
               <strong>{item.value}</strong>

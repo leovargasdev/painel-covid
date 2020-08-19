@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FaHeart } from 'react-icons/fa';
+import { FaUsers } from 'react-icons/fa';
 import { ThemeProvider } from 'styled-components';
 
 import ContactForm from '~/components/ContactForm';
@@ -32,7 +32,7 @@ const LayoutCovid = ({ city, contact = true, route, children }) => (
         <span>
           © 2020 <a href="https://leonardovargas.me">Leonardo Vargas</a>, todos os direitos reservados a população
         </span>
-        <FaHeart />
+        <FaUsers />
       </Footer>
 
     </Container>

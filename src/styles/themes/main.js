@@ -1,5 +1,6 @@
 export default {
   blue: '#0090e7', // discarded
+  blueDark: '#12151e', // deaths
   yellow: '#ffab00', // suspect
   red: '#fc424a', // active
   green: '#00d25b', // recovered
