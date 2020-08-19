@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import imgDefault from '~/images/profile.jpg';
+import imgDefault from '~/images/covid-share.png';
 
 function SEO({ description, lang, meta, title, image, url }) {
   const { site } = useStaticQuery(
@@ -56,7 +56,7 @@ function SEO({ description, lang, meta, title, image, url }) {
         },
         {
           property: 'og:site_name',
-          content: 'Site pessoal do Leonardo Vargas'
+          content: 'Painel Coronavírus'
         },
         {
           name: 'twitter:card',
@@ -91,6 +91,7 @@ SEO.defaultProps = {
   lang: 'pt',
   meta: [],
   description: '',
+  image: '',
   url: 'https://painelcoronavirus.com'
 };
 
@@ -98,7 +99,7 @@ SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   url: PropTypes.string,
-  image: PropTypes.any,
+  image: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired
 };

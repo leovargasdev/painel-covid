@@ -4,6 +4,7 @@ export default {
   red: '#fc424a', // active
   green: '#00d25b', // recovered
   box: '#191c24',
-  primaryText: '#FFF',
-  secondaryText: '#6c7293'
+  gray: '#2c2e33',
+  primary: '#FFF',
+  secondary: '#6c7293'
 };

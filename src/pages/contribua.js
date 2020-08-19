@@ -6,7 +6,7 @@ import { MdSend, MdLocationOn } from 'react-icons/md';
 import { GiHearts } from 'react-icons/gi';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
-import { ContainerInput } from '~/components/Covid/ContactForm/styles';
+import { ContainerInput } from '~/components/ContactForm/styles';
 
 import SEO from '~/components/SEO';
 

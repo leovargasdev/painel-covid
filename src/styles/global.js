@@ -9,13 +9,15 @@ const GlobalStyles = createGlobalStyle`
     outline: 0;
     box-sizing: border-box;
     vertical-align: baseline;
-    color: ${({ theme }) => theme.primaryText};
   }
   body {
     line-height: 1;
-    font-family: 'Roboto', sans-serif;
-    -webkit-font-smoothing: antialiased; /* Deixa a fonte mais definida */
     background: #000;
+  }
+  body, input, button, textarea {
+    -webkit-font-smoothing: antialiased; /* Deixa a fonte mais definida */
+    font-family: 'Roboto', sans-serif;
+    color: ${({ theme }) => theme.primary};
   }
   a{
     text-decoration: none;

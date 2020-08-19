@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FaHeart } from 'react-icons/fa';
 import { ThemeProvider } from 'styled-components';
 
-// import ContactForm from '../ContactForm';
+import ContactForm from '~/components/ContactForm';
 import SEO from '~/components/SEO';
 
 import { Container, Content, Footer } from './styles';
@@ -13,7 +13,7 @@ import { main } from '~/styles/themes';
 
 import imgMeta from '~/images/covid-share.png';
 
-const LayoutCovid = ({ city, children }) => {
+const LayoutCovid = ({ city, contact = true, children }) => {
   const url = city.toLowerCase().replace(' ', '-');
   return (
     <ThemeProvider theme={main}>
@@ -28,7 +28,7 @@ const LayoutCovid = ({ city, children }) => {
 
         <Content>{children}</Content>
 
-        {/* <ContactForm /> */}
+        {contact && <ContactForm />}
 
         <Footer>
           <span>
@@ -44,6 +44,7 @@ const LayoutCovid = ({ city, children }) => {
 
 LayoutCovid.propTypes = {
   children: PropTypes.node.isRequired,
+  contact: PropTypes.bool.isRequired,
   city: PropTypes.string.isRequired
 };
 

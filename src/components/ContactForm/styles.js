@@ -8,13 +8,12 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #26547C;
+  background: ${({ theme }) => theme.box};
   padding: 30px 0;
   margin-top: 20px;
 
   h1 {
     font-size: 28px;
-    color: #fafaff;
     margin: 0 0 20px;
   }
 
@@ -24,46 +23,36 @@ export const Container = styled.div`
     max-width: 720px;
     width: 100%;
 
-    label {
-      color: #fafaff;
-      span {
-        margin-left: 2px;
-        font-size: 14px;
-        opacity: 0.8;
+    button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      width: 300px;
+      padding: 12px 0;
+      margin: 0 auto;
+      background: ${({ theme }) => theme.box};
+      font-size: 18px;
+      text-transform: uppercase;
+      border-radius: 4px;
+      border: 1px solid ${({ theme }) => theme.gray};
+      transition-duration: 0.6s;
+
+      &:hover {
+        background: #FFF;
+        color: ${({ theme }) => theme.box};
+        svg {
+          color: ${({ theme }) => theme.box};
+        }
       }
-    }
 
-  }
-
-  button {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    align-self: center;
-
-    padding: 12px 80px;
-    margin: 0;
-    background: transparent;
-    color: #fafaff;
-    font-size: 18px;
-    text-transform: uppercase;
-    border-radius: 4px;
-    border: 1px solid #fafaff;
-    transition-duration: 0.6s;
-
-    &:hover {
-      background: #fafaff;
-      color: #26547C;
       svg {
-        color: #26547C;
+        margin-left: 4px;
       }
     }
-
-    svg {
-      padding-left: 2px;
-      color: #fafaff;
-    }
   }
+
 
   ${media.lessThan('large')`
     padding: 20px 0;
@@ -98,30 +87,27 @@ export const ContainerInput = styled.div`
   margin: 3px 0 15px;
   padding: 12px 20px;
   border-radius: 4px;
-  border: 1px solid #fafaff;
-  color: #fafaff;
+  border: 1px solid ${({ theme }) => theme.gray};
   transition-duration: 0.3s;
 
   input, textarea {
     flex: 1;
     background: transparent;
     border: 0;
-    color: #fafaff;
     font-size: 20px;
     outline: 0;
     &::placeholder {
-      color: #fafaff;
+      color: #FFF;
     }
   }
 
   ${(props) => props.isFocus
     && css`
-      background: #fafaff;
-      color: #26547C;
-      border-color: #26547C;
+      background: #000;
+      color: #fff;
 
       input, textarea {
-        color: #26547C;
+        color: #fff;
       }
     `}
 
@@ -152,16 +138,18 @@ export const BtnContri = styled(AniLink)`
   padding: 12px 80px;
   margin: 0 0 20px;
   background: transparent;
-  color: #fafaff;
+
+  color: ${({ theme }) => theme.primary};
   font-size: 18px;
   text-transform: uppercase;
+
+  border: 1px solid ${({ theme }) => theme.gray};
   border-radius: 4px;
-  border: 1px solid #fafaff;
   transition-duration: 0.6s;
 
   &:hover {
-    background: #fafaff;
-    color: #26547C;
+    background: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.gray};
   }
 
   ${media.lessThan('large')`

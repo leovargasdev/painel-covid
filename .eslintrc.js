@@ -33,6 +33,7 @@ module.exports = {
     "global-require": "off",
     "import/no-cycle": "off",
     "react/no-danger": "off",
+    "jsx-a11y/label-has-associated-control": "off",
     "object-curly-newline": "off",
     "comma-dangle": ["error", { "functions": "ignore" }]
   },

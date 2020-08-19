@@ -4,7 +4,7 @@ import { MdSend, MdChat } from 'react-icons/md';
 
 import { Container, ContainerInput, BtnContri } from './styles';
 
-function ContactForm() {
+const ContactForm = () => {
   const [isFocused, setIsFocused] = useState({
     email: false, message: false
   });
@@ -13,10 +13,6 @@ function ContactForm() {
 
   return (
     <Container>
-
-      <BtnContri to="/">
-        Outras Cidades
-      </BtnContri>
 
       <BtnContri to="/contribua">
         Criar um painel para o seu Município
@@ -40,7 +36,7 @@ function ContactForm() {
           />
         </ContainerInput>
 
-        <label>Email<span>(campo não obrigatório)</span></label>
+        <label>Email</label>
         <ContainerInput isFocus={isFocused.email}>
           <FaAt size={30} />
           <input
@@ -60,6 +56,6 @@ function ContactForm() {
       </form>
     </Container>
   );
-}
+};
 
 export default ContactForm;

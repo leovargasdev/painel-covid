@@ -62,19 +62,11 @@ module.exports = {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: [
-          'Roboto:100,300,400,400i,700,700i' // you can also specify font weights and styles
+          'Roboto:100,300,400,400i,700,700i'
         ],
         display: 'swap'
       }
     },
-    // {
-    //   resolve: 'gatsby-plugin-web-font-loader',
-    //   options: {
-    //     google: {
-    //       families: ['Roboto:100.300.400.500.700']
-    //     }
-    //   }
-    // },
     'gatsby-plugin-offline'
   ]
 };
