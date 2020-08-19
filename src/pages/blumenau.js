@@ -1,9 +1,9 @@
 import React from 'react';
 
-import LayoutCovid from '~/components/Covid/Layout';
+import LayoutCovid from '~/components/Layout';
 import Covid from '~/components/Covid';
 
-import { blumenau } from '~/utils/querySheets';
+import blumenau from '~/utils/querySheets/blumenau';
 import handleDataSimpleSheetsCovid from '~/utils/hooksSheetsSimple';
 
 const CovidPageBlumenau = () => {

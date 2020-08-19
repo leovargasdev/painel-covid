@@ -1,37 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FaUserAstronaut } from 'react-icons/fa';
+import { FaHeart } from 'react-icons/fa';
+import { ThemeProvider } from 'styled-components';
 
-import ContactForm from '../ContactForm';
+// import ContactForm from '../ContactForm';
 import SEO from '~/components/SEO';
 
-import { GlobalStyles, Container, Content, Footer } from './styles';
+import { Container, Content, Footer } from './styles';
+
+import GlobalStyle from '~/styles/global';
+import { main } from '~/styles/themes';
+
 import imgMeta from '~/images/covid-share.png';
 
 const LayoutCovid = ({ city, children }) => {
   const url = city.toLowerCase().replace(' ', '-');
   return (
-    <>
+    <ThemeProvider theme={main}>
       <SEO
         title={`Coronavírus ${city}`}
-        url={`https://leonardovargas.me/coronavirus-${url}`}
+        url={`https://painelcoronavirus.com/${url}`}
         description={`${city}: Painel com as informações da situação Epidemiológica sobre o COVID-19`}
         image={imgMeta}
       />
       <Container>
+        <GlobalStyle />
+
         <Content>{children}</Content>
 
-        <ContactForm />
+        {/* <ContactForm /> */}
 
         <Footer>
           <span>
-            by <a href="https://leonardovargas.me">Leonardo Vargas</a>
+            © 2020 <a href="https://leonardovargas.me">Leonardo Vargas</a>, todos os direitos reservados a população
           </span>
-          <FaUserAstronaut size={15} color="#333" />
+          <FaHeart />
         </Footer>
+
       </Container>
-      <GlobalStyles />
-    </>
+    </ThemeProvider>
   );
 };
 
@@ -39,4 +46,5 @@ LayoutCovid.propTypes = {
   children: PropTypes.node.isRequired,
   city: PropTypes.string.isRequired
 };
+
 export default LayoutCovid;

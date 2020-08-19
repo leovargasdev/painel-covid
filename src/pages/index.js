@@ -201,7 +201,8 @@ const CovidsPage = () => {
 
   return (
     <Container>
-      <Header>
+      <h1>teste</h1>
+      {/* <Header>
         <p>Painel do</p>
         <strong>Coronavírus</strong>
       </Header>
@@ -214,7 +215,7 @@ const CovidsPage = () => {
             </Info>
           </Panel>
         ))}
-      </Panels>
+      </Panels> */}
     </Container>
   );
 };

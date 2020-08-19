@@ -59,13 +59,22 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-web-font-loader',
+      resolve: 'gatsby-plugin-google-fonts',
       options: {
-        google: {
-          families: ['Source Sans Pro: 100.300.500']
-        }
+        fonts: [
+          'Roboto:100,300,400,400i,700,700i' // you can also specify font weights and styles
+        ],
+        display: 'swap'
       }
     },
+    // {
+    //   resolve: 'gatsby-plugin-web-font-loader',
+    //   options: {
+    //     google: {
+    //       families: ['Roboto:100.300.400.500.700']
+    //     }
+    //   }
+    // },
     'gatsby-plugin-offline'
   ]
 };

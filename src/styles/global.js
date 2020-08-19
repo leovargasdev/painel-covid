@@ -1,30 +1,21 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
-  /* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-  */
-  html, body, div, span,
-  h2, h3, h4, h5, h6, p, blockquote, pre,
-  a, img, small, strike, strong, sub, sup, tt, var,
-  b, form, label, figure, figcaption, footer,
-  header, hgroup, menu, nav, output, ruby, section {
+  /* @import url('https://gatsfonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap'); */
+
+  * {
     margin: 0;
     padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-  }
-  * {
+    outline: 0;
     box-sizing: border-box;
+    vertical-align: baseline;
+    color: ${({ theme }) => theme.primaryText};
   }
   body {
     line-height: 1;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased; /* Deixa a fonte mais definida */
-    background: #fafaff;
+    background: #000;
   }
   a{
     text-decoration: none;
