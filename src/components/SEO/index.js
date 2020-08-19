@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import imgDefault from '~/images/covid-share.png';
 
-function SEO({ description, lang, meta, title, image, url }) {
+const SEO = ({ description, meta, title, image, route }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -24,9 +24,7 @@ function SEO({ description, lang, meta, title, image, url }) {
   const metaImage = image || imgDefault;
   return (
     <Helmet
-      htmlAttributes={{
-        lang
-      }}
+      htmlAttributes={{ lang: 'pt-br' }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
@@ -44,7 +42,7 @@ function SEO({ description, lang, meta, title, image, url }) {
         },
         {
           property: 'og:url',
-          content: url
+          content: 'https://painelcoronavirus.com/'.concat(route)
         },
         {
           property: 'og:image',
@@ -64,7 +62,7 @@ function SEO({ description, lang, meta, title, image, url }) {
         },
         {
           name: 'twitter:url',
-          content: url
+          content: 'https://painelcoronavirus.com/'.concat(route)
         },
         {
           name: 'twitter:image',
@@ -85,20 +83,18 @@ function SEO({ description, lang, meta, title, image, url }) {
       ].concat(meta)}
     />
   );
-}
+};
 
 SEO.defaultProps = {
-  lang: 'pt',
   meta: [],
   description: '',
   image: '',
-  url: 'https://painelcoronavirus.com'
+  route: ''
 };
 
 SEO.propTypes = {
   description: PropTypes.string,
-  lang: PropTypes.string,
-  url: PropTypes.string,
+  route: PropTypes.string,
   image: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired

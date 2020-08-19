@@ -21,7 +21,7 @@ export const Content = styled.div`
   ${media.lessThan('large')`
     padding: 0;
   `}
-  background: blue;
+  /* background: blue; */
 `;
 
 export const Footer = styled.footer`

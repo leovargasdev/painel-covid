@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LayoutCovid from '~/components/Layout';
+import Layout from '~/components/Layout';
 // import Covid from '~/components/Covid';
 
 // import chapeco from '~/utils/querySheets/chapeco';
@@ -23,9 +23,9 @@ const CovidPage = () =>
 // });
 
   (
-    <LayoutCovid city="Chapecó">
+    <Layout city="Chapecó" route="chapeco">
       <h2>olar</h2>
       {/* <Covid name="chapeco" data={data} flagImage={flagImage} xapPanel fonte={fonte} /> */}
-    </LayoutCovid>
+    </Layout>
   );
 export default CovidPage;

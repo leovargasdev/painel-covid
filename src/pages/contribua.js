@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 import media from 'styled-media-query';
 import { FaAt } from 'react-icons/fa';
 import { MdSend, MdLocationOn } from 'react-icons/md';
@@ -7,20 +7,7 @@ import { GiHearts } from 'react-icons/gi';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import { ContainerInput } from '~/components/ContactForm/styles';
-
-import SEO from '~/components/SEO';
-
-const GlobalStyles = createGlobalStyle`
-  body {
-    line-height: 1;
-    font-family: 'Ubuntu', sans-serif;
-    -webkit-font-smoothing: antialiased; /* Deixa a fonte mais definida */
-    background: #26547C;
-    color: #fafaff;
-    margin: 0;
-    padding: 0;
-  }
-`;
+import Layout from '~/components/Layout/';
 
 const Container = styled.div`
   display: flex;
@@ -161,10 +148,7 @@ const ContribuaPage = () => {
   const [message, setMessage] = useState('');
   const [email, setEmail] = useState('');
   return (
-    <>
-      <SEO
-        title="Contribua"
-      />
+    <Layout city="Contribua" route="contribua">
       <Container>
         <h1>
           Projeto de Expansão para outras Cidades!
@@ -221,8 +205,8 @@ const ContribuaPage = () => {
         </AniLink>
 
       </Container>
-      <GlobalStyles />
-    </>
+    </Layout>
   );
 };
+
 export default ContribuaPage;
