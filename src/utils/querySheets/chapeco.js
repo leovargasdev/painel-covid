@@ -69,8 +69,8 @@ const queries = () => {
       }
       flagImage: file(relativePath: { eq: "flags/chapeco.png" }) {
         childImageSharp {
-          fixed(height: 130, quality: 100) {
-            ...GatsbyImageSharpFixed
+          fluid(maxWidth: 200, quality: 100) {
+            ...GatsbyImageSharpFluid
           }
         }
       }

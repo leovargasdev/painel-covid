@@ -18,9 +18,9 @@ import { Container, ChartsInRow } from './styles';
 
 const Covid = ({ name, data, flagImage, fonte, subtitle }) => (
   <Container>
-    {/* <Header name={name} date={data.lastUpdate} img={flagImage} subtitle={subtitle} />
+    <Header name={name} date={data.lastUpdate} img={flagImage} subtitle={subtitle} />
 
-    <StatusCovid data={data.statusCases} /> */}
+    {/* <StatusCovid data={data.statusCases} /> */}
 
     <TotalCases label={data.label} data={data.cases} fonte={fonte} />
 

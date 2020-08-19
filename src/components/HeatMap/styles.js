@@ -103,26 +103,27 @@ export const Notas = styled.div`
     font-weight: bold;
     font-size: 16px;
     text-align: center;
-    background: #26547C;
-    color: #fafaff;
+    background: ${({ theme }) => theme.gray};
+    color: ${({ theme }) => theme.primary};
     padding: 4px 0;
     margin: 0;
   }
 
   ul {
-    list-style: disc;
-    border: 1px solid #26547C;
+    list-style: decimal;
+    border: 1px solid ${({ theme }) => theme.gray};
     border-top: 0;
     padding: 4px 30px;
     margin: 0;
   }
+
   li {
-    font-size: 13px;
-    line-height: 15px;
-    color: #26547C;
+    font-size: 14px;
+    line-height: 18px;
+    color: ${({ theme }) => theme.primary};
     font-weight: 300;
     a{
-      color: #26547C;
+      color: ${({ theme }) => theme.primary};
       font-weight: bold;
     }
   }
