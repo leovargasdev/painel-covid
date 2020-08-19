@@ -5,12 +5,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   padding: 20px 0;
   margin-top: 20px;
-  background: #fff;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+  background: ${({ theme }) => theme.box};
 
   h3{
     padding-left: 20px;

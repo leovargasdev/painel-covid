@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Bar } from 'react-chartjs-2';
-import { lighten } from 'polished';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
 import options from '~/utils/configCharts';
 import ContainerCharts from '~/components/Charts/Container';
-import colors from '~/styles/colors';
 
 const Container = styled.div`
   flex: 1;
@@ -18,7 +16,7 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-  height: 180px;
+  height: 300px;
   ${media.lessThan('large')`
     height: 240px;
   `};
@@ -35,10 +33,10 @@ const CasesForAges = ({
     datasets: [
       {
         label: 'Casos Confirmados',
-        backgroundColor: lighten(0.2, colors.purple),
-        borderColor: colors.purple,
+        backgroundColor: '#7E52A0',
+        borderColor: '#29274C',
         borderWidth: 2,
-        hoverBackgroundColor: colors.purple,
+        hoverBackgroundColor: '#29274C',
         data: [range1, range2, range3, range4, range5, range6, range7, range8]
       }
     ]

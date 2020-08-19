@@ -4,7 +4,7 @@ import media from 'styled-media-query';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+
   border-radius: 4px;
   padding: 20px 15px;
   margin-top: 20px;
@@ -20,9 +20,8 @@ export const Container = styled.div`
 
   span {
     margin-top: 8px;
-    font-size: 13px;
-    color: #777;
-    font-weight: 100;
+    font-size: 14px;
+    font-weight: 300;
     text-align: center;
   }
 
@@ -40,14 +39,7 @@ export const Container = styled.div`
     }
   `}
 
-  background: #fff;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
-  transition: all 1s ease-in-out;
-
-  &:hover {
-    cursor: pointer;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  }
+  background: ${({ theme }) => theme.box};
 `;
 
 export const RangeDays = styled.div`

@@ -24,7 +24,7 @@ const ContactForm = () => {
 
         <label>Texto</label>
         <ContainerInput isFocus={isFocused.message}>
-          <MdChat size={30} />
+          <MdChat />
           <textarea
             rows="3"
             cols="50"
@@ -38,7 +38,7 @@ const ContactForm = () => {
 
         <label>Email</label>
         <ContainerInput isFocus={isFocused.email}>
-          <FaAt size={30} />
+          <FaAt />
           <input
             type="email"
             name="email"

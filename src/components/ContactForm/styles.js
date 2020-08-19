@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
-
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -10,7 +9,7 @@ export const Container = styled.div`
   justify-content: center;
   background: ${({ theme }) => theme.box};
   padding: 30px 0;
-  margin-top: 20px;
+  margin-top: 10px;
 
   h1 {
     font-size: 28px;
@@ -55,10 +54,11 @@ export const Container = styled.div`
 
 
   ${media.lessThan('large')`
-    padding: 20px 0;
+    padding: 10px 0;
+
     h1 {
       text-align: center;
-      font-size: 16px;
+      font-size: 14px;
       letter-spacing: -0.5px;
       margin-bottom: 12px;
     }
@@ -71,8 +71,8 @@ export const Container = styled.div`
         margin-top: 5px;
         padding: 6px 60px;
       }
-      label span {
-        font-size: 12px;
+      label {
+        font-size: 14px;
       }
     }
   `};
@@ -123,13 +123,13 @@ export const ContainerInput = styled.div`
     padding: 6px 8px;
 
     input, textarea {
-      font-size: 16px;
+      font-size: 14px;
     }
 
     svg {
       margin-right: 8px;
-      width: 20px;
-      height: 20px;
+      width: 14px;
+      height: 14px;
     }
   `};
 `;
@@ -153,7 +153,8 @@ export const BtnContri = styled(AniLink)`
   }
 
   ${media.lessThan('large')`
-    font-size: 14px;
-    padding: 12px 60px;
+    font-size: 12px;
+    padding: 12px 40px;
+    margin-bottom: 10px;
   `};
 `;

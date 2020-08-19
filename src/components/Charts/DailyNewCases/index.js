@@ -1,13 +1,14 @@
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Bar } from 'react-chartjs-2';
+import { useTheme } from 'styled-components';
 
 import options from '~/utils/configCharts';
-import colors from '~/styles/colors';
 import ContainerCharts from '~/components/Charts/Container';
 import { Content } from './styles';
 
 function DailyNewCases({ fonte, label, data: { confirmedPerDay, recoveredPerDay } }) {
+  const theme = useTheme();
   const [numberRange, setNumberRange] = useState(10);
 
   const days = useMemo(() => confirmedPerDay.length - numberRange, [numberRange]);
@@ -18,15 +19,13 @@ function DailyNewCases({ fonte, label, data: { confirmedPerDay, recoveredPerDay 
       {
         barPercentage: 0.9,
         label: 'Casos Confirmados',
-        backgroundColor: 'rgba(153,153,153,0.6)',
-        borderColor: 'rgb(153,153,153)',
-        borderWidth: 1,
+        backgroundColor: 'rgb(153,153,153)',
         data: confirmedPerDay && confirmedPerDay.slice(days)
       },
       {
         barPercentage: 0.9,
         label: 'Casos Curados',
-        backgroundColor: colors.recovered,
+        backgroundColor: theme.greenDark,
         data: recoveredPerDay && recoveredPerDay.slice(days)
       }
     ]

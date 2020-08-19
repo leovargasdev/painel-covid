@@ -5,9 +5,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+
   ${media.lessThan('large')`
-    padding: 5px;
+    padding: 5px 0;
   `}
 `;
 
@@ -15,13 +15,11 @@ export const Content = styled.div`
   display: flex;
   width: 100%;
   max-width: 1170px;
-  height: 1000px;
   margin: 0 auto;
   padding: 10px 0;
   ${media.lessThan('large')`
     padding: 0;
   `}
-  /* background: blue; */
 `;
 
 export const Footer = styled.footer`
@@ -51,6 +49,16 @@ export const Footer = styled.footer`
   }
 
   ${media.lessThan('large')`
-    padding: 10px 0;
+    margin: 10px auto;
+    padding: 0;
+
+    span {
+      font-size: 11px;
+
+      svg {
+        width: 11px;
+        height: 11px;
+      }
+    }
   `}
 `;

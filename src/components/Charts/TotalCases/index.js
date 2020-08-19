@@ -1,13 +1,14 @@
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Line } from 'react-chartjs-2';
+import { useTheme } from 'styled-components';
 
-import colors from '~/styles/colors';
 import options from '~/utils/configCharts';
 import ContainerCharts from '~/components/Charts/Container';
 import { Content } from './styles';
 
 function TotalCases({ fonte, label, data: { actives, suspecteds, recovereds } }) {
+  const theme = useTheme();
   const [numberRange, setNumberRange] = useState(18);
 
   const days = useMemo(() => actives.length - numberRange, [numberRange]);
@@ -19,12 +20,12 @@ function TotalCases({ fonte, label, data: { actives, suspecteds, recovereds } })
         fill: 'origin',
         label: 'Casos Ativos',
         backgroundColor: 'rgba(219,22,47,0.1)',
-        borderColor: colors.active,
+        borderColor: theme.red,
         borderJoinStyle: 'miter', // Forma das curvas
-        pointBorderColor: colors.active,
+        pointBorderColor: theme.red,
         pointBorderWidth: 1,
         pointHoverRadius: 3,
-        pointHoverBackgroundColor: colors.active,
+        pointHoverBackgroundColor: theme.red,
         pointRadius: 1,
         pointHitRadius: 10,
         data: actives && actives.slice(days)
@@ -33,12 +34,12 @@ function TotalCases({ fonte, label, data: { actives, suspecteds, recovereds } })
         fill: 'origin',
         label: 'Casos Curados',
         backgroundColor: 'rgba(43,157,143,0.3)',
-        borderColor: colors.recovered,
+        borderColor: theme.green,
         borderJoinStyle: 'miter', // Forma das curvas
-        pointBorderColor: colors.recovered,
+        pointBorderColor: theme.green,
         pointBorderWidth: 1,
         pointHoverRadius: 3,
-        pointHoverBackgroundColor: colors.recovered,
+        pointHoverBackgroundColor: theme.green,
         pointRadius: 1,
         pointHitRadius: 10,
         data: recovereds && recovereds.slice(days)
@@ -47,12 +48,12 @@ function TotalCases({ fonte, label, data: { actives, suspecteds, recovereds } })
         fill: 'origin',
         label: 'Casos Suspeitos',
         backgroundColor: 'rgba(250,187,37,0.2)',
-        borderColor: colors.suspect,
+        borderColor: theme.yellow,
         borderJoinStyle: 'miter', // Forma das curvas
-        pointBorderColor: colors.suspect,
+        pointBorderColor: theme.yellow,
         pointBorderWidth: 1,
         pointHoverRadius: 3,
-        pointHoverBackgroundColor: colors.suspect,
+        pointHoverBackgroundColor: theme.yellow,
         pointRadius: 1,
         pointHitRadius: 10,
         data: suspecteds && suspecteds.slice(days)

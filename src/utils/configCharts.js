@@ -3,7 +3,13 @@ const options = {
   scales: {
     xAxes: [{
       gridLines: {
-        color: 'rgba(0, 0, 0, 0)'
+        color: 'rgba(255, 255, 255, 0)'
+      },
+      stacked: true
+    }],
+    yAxes: [{
+      gridLines: {
+        color: 'rgba(255, 255, 255, 0.4)'
       },
       stacked: true
     }]
@@ -13,11 +19,15 @@ const options = {
     easing: 'linear'
   },
   legend: {
-    display: true
+    display: true,
+    labels: {
+      fontColor: '#dedede'
+    }
   },
   title: {
     display: true,
     position: 'left',
+    fontColor: '#dedede',
     padding: 0
   },
   tooltips: {

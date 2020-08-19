@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Pie } from 'react-chartjs-2';
 
-import { Container, Content, ContainerCharts } from './styled';
+import ContainerCharts from '~/components/Charts/Container';
+
+import { Content, Chart } from './styled';
 
 const HospitalOccupation = ({ data: { uti, nursery } }) => {
   const dataUti = {
@@ -13,6 +15,7 @@ const HospitalOccupation = ({ data: { uti, nursery } }) => {
       backgroundColor: ['#29274C', '#7E52A0', '#D1B1C8']
     }]
   };
+
   const dataEnfermaria = {
     labels: ['Casos confirmados', 'Casos suspeitos', 'Leitos Disponiveis'],
     datasets: [{
@@ -23,29 +26,30 @@ const HospitalOccupation = ({ data: { uti, nursery } }) => {
   };
 
   return (
-    <Container>
-      <h3>Ocupação dos Leitos Hospitalares(SUS e Privado)</h3>
+    <ContainerCharts title="Ocupação dos Leitos Hospitalares(SUS e Privado)" rangeValues={{ active: false }} fonte="Nota: Ao realizar a contagem da ocupação hospitalar é considerado também os residentes de outros municípios internados em Chapecó-SC.">
       <Content>
-        <ContainerCharts>
+        <Chart>
           <p>Leitos de UTI</p>
-          <Pie data={dataUti} />
+          <Pie
+            options={{ legend: { labels: { fontColor: '#dedede' } } }}
+            data={dataUti}
+          />
           <span>Capacidade Total: <strong>{uti.total} leitos</strong></span>
           <span>Número ocupados: <strong>{uti.occupation} leitos</strong></span>
           <span>Porcentagem da Ocupação: <strong>{uti.po}%</strong></span>
-        </ContainerCharts>
-        <ContainerCharts>
+        </Chart>
+        <Chart>
           <p>Leitos de Enfermaria</p>
-          <Pie data={dataEnfermaria} />
+          <Pie
+            options={{ legend: { labels: { fontColor: '#dedede' } } }}
+            data={dataEnfermaria}
+          />
           <span>Capacidade Total: <strong>{nursery.total} leitos</strong></span>
           <span>Número ocupados: <strong>{nursery.occupation} leitos</strong></span>
           <span>Porcentagem da Ocupação: <strong>{nursery.po}%</strong></span>
-        </ContainerCharts>
+        </Chart>
       </Content>
-      <span>
-        Nota: Ao realizar a contagem da ocupação hospitalar é considerado
-        também os residentes de outros municípios internados em Chapecó-SC.
-      </span>
-    </Container>
+    </ContainerCharts>
   );
 };
 
