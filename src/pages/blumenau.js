@@ -10,7 +10,7 @@ const CovidPageBlumenau = () => {
   const {
     allGoogleSheetCovidBlumenauRow: { nodes: covidSheet },
     googleSheetCovidBlumenauRow: statusCases,
-    flagImage
+    flagImage: { childImageSharp: { fluid: imageCity } }
   } = JSON.parse(blumenau());
 
   const fonte = 'Dados referentes aos Boletins Coronavírus de Blumenau, 2020';
@@ -18,7 +18,7 @@ const CovidPageBlumenau = () => {
 
   return (
     <LayoutCovid city="Blumenau" route="blumenau">
-      <Covid name="blumenau" data={data} fonte={fonte} flagImage={flagImage} />
+      <Covid name="blumenau" data={data} fonte={fonte} image={imageCity} subtitle="Blumenau" />
     </LayoutCovid>
   );
 };

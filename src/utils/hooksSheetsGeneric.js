@@ -44,7 +44,7 @@ const handleDataSheetsCovid = (cases) => {
     statusCases: {
       actives: cases.confirmeds[maxValue][city] - (cases.recovereds[maxValue][city] + cases.deaths[maxValue][city]),
       deaths: cases.deaths[maxValue][city],
-      discarded: 0,
+      discarded: cases.discardeds[maxValue][city],
       recovered: cases.recovereds[maxValue][city],
       suspected: cases.suspecteds[maxValue][city]
     }

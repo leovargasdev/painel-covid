@@ -26,7 +26,7 @@ const queries = () => {
       }
       flagImage: file(relativePath: { eq: "flags/blumenau.png" }) {
         childImageSharp {
-          fluid(maxWidth: 200, quality: 100) {
+          fluid(maxWidth: 230, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }

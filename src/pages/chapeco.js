@@ -14,7 +14,7 @@ const CovidPage = () => {
     googleSheetCovidChapecoAgesRow: agesCasesBar,
     googleSheetCovidChapecoRow: statusCases,
     allGoogleSheetCovidChapecoNeighborhoodsRow: { nodes: casesNeighborhoods },
-    flagImage
+    flagImage: { childImageSharp: { fluid: imageCity } }
   } = JSON.parse(chapeco());
 
   const fonte = 'Vigilância Epidemiológica de Chapecó, 2020';
@@ -24,7 +24,7 @@ const CovidPage = () => {
 
   return (
     <Layout city="Chapecó" route="chapeco">
-      <Covid name="chapeco" data={data} flagImage={flagImage} xapPanel fonte={fonte} />
+      <Covid name="chapeco" data={data} image={imageCity} xapPanel fonte={fonte} subtitle="Chapecó" />
     </Layout>
   );
 };

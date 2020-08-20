@@ -13,7 +13,7 @@ export const Container = styled.section`
     justify-content: center;
 
     .gatsby-image-wrapper {
-      width: 200px;
+      width: 230px;
     }
   }
 
@@ -21,8 +21,7 @@ export const Container = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 2px;
-
+    margin-bottom: 10px;
     color: ${({ theme }) => theme.primary};
     font-size: 14px;
     font-weight: 300;
@@ -54,11 +53,11 @@ export const Title = styled.div`
   margin-top: 15px; /* Compensar as bordas da imagem, e alinhar os dois horizontalmente */
   margin-left: 10px;
 
-  p {
+  p, span {
     margin: 0;
     font-size: 38px;
     font-weight: 400;
-    line-height: 25px;
+    line-height: 38px;
   }
   strong {
     font-size: 50px;

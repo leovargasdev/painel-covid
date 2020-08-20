@@ -6,16 +6,16 @@ import PropTypes from 'prop-types';
 
 import { Container, Title, ContainerShare, ButtonShare } from './styles';
 
-const Header = ({ name, img, date, subtitle }) => {
+const Header = ({ name, image, date, subtitle }) => {
   const urlShare = `https://painelcoronavirus.com/${name}`;
   return (
     <Container>
       <header>
-        {/* <Img fluid={img.childImageSharp.fluid} alt="Bandeira do município" /> */}
+        {image && <Img fluid={image} alt="Bandeira do município" title="Bandeira do município" />}
         <Title>
           <p>Painel do</p>
           <strong>Coronavírus</strong>
-          {subtitle && <p>{subtitle}</p>}
+          {subtitle && <span>{subtitle}</span>}
         </Title>
       </header>
       <span>
@@ -66,7 +66,6 @@ const Header = ({ name, img, date, subtitle }) => {
             </TelegramShareButton>
           </ButtonShare>
         </div>
-
       </ContainerShare>
     </Container>
   );
@@ -74,9 +73,14 @@ const Header = ({ name, img, date, subtitle }) => {
 
 export default Header;
 
+Header.defaultProps = {
+  subtitle: '',
+  image: ''
+};
+
 Header.propTypes = {
   name: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
   date: PropTypes.string.isRequired,
-  img: PropTypes.oneOfType([PropTypes.object]).isRequired
+  image: PropTypes.string
 };

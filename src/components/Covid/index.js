@@ -16,9 +16,9 @@ import Header from './Header';
 
 import { Container, ChartsInRow } from './styles';
 
-const Covid = ({ name, data, flagImage, fonte, subtitle }) => (
+const Covid = ({ name, data, image, fonte, subtitle }) => (
   <Container>
-    <Header name={name} date={data.lastUpdate} img={flagImage} subtitle={subtitle} />
+    <Header name={name} date={data.lastUpdate} image={image} subtitle={subtitle} />
 
     <StatusCovid data={data.statusCases} />
 
@@ -48,14 +48,15 @@ const Covid = ({ name, data, flagImage, fonte, subtitle }) => (
 );
 
 Covid.defaultProps = {
-  subtitle: ''
+  subtitle: '',
+  image: ''
 };
 
 Covid.propTypes = {
   data: PropTypes.oneOfType([PropTypes.object]).isRequired,
   name: PropTypes.string.isRequired,
   fonte: PropTypes.string.isRequired,
-  flagImage: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  image: PropTypes.string,
   subtitle: PropTypes.string
 };
 
