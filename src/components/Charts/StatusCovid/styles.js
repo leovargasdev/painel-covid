@@ -29,7 +29,7 @@ export const RightPanel = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 10px 0;
+  padding: 30px 0;
   height: 100%;
 
   ${media.lessThan('large')`

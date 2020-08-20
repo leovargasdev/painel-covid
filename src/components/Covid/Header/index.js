@@ -11,7 +11,7 @@ const Header = ({ name, img, date, subtitle }) => {
   return (
     <Container>
       <header>
-        <Img fluid={img.childImageSharp.fluid} alt="Bandeira do município" />
+        {/* <Img fluid={img.childImageSharp.fluid} alt="Bandeira do município" /> */}
         <Title>
           <p>Painel do</p>
           <strong>Coronavírus</strong>

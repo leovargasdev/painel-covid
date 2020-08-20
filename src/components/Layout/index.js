@@ -30,7 +30,7 @@ const LayoutCovid = ({ city, contact = true, route, children }) => (
 
       <Footer>
         <span>
-          © 2020 <a href="https://leonardovargas.me">Leonardo Vargas</a>, todos os direitos reservados a população
+          <a href="https://leonardovargas.me">Leonardo Vargas</a> © 2020. Todos os direitos reservados a população
         </span>
         <FaUsers />
       </Footer>
