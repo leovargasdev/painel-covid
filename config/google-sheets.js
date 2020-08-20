@@ -14,8 +14,8 @@ const idsSheets = {
   // xaxim: '1zQgjGQB_hDSot8oOqePjSgLq3TI6W1JjqMGJanolykU',
   // oeste: '1J_oYIupJpvho8F17A65Um2LqkBleCPt_okYIPn3OWWc',
   // patoBranco: '1AGYdUqWBKS6HKuv-o7izZ41g-oyVOoFELCTKb2cBuaA',
-  coredecChapeco: '1WMiNCMlwWxRs90uJLylxIFr-f4kGD2k-SI-CKlIVhUA'
-  // coredecMaravilha: '1cQ3HZUsHq55SN-QzpNwvNj3ZE8ouLjcYXMh9qM291aI',
+  coredecChapeco: '1WMiNCMlwWxRs90uJLylxIFr-f4kGD2k-SI-CKlIVhUA',
+  coredecMaravilha: '1cQ3HZUsHq55SN-QzpNwvNj3ZE8ouLjcYXMh9qM291aI'
   // coredecMiguel: '1ONsnGHX_hm0cqQQeTvgqjiGKIYPR4RSbHPcBxOgP_X8',
   // coredecXanxere: '10MbSB9Eb4nAq1pQIdXyCBfKOXv97K12dABc2YAsKxCs',
   // novaTebas: '1xN7f_llDQHgI8UDAjEXQXFf6HrFM-YVhdEK45qk8RLU',
@@ -59,7 +59,7 @@ cyties.forEach((city) => cytiesSheets.push({
 //   }
 // });
 
-['coredecChapeco'].forEach((coredec) => {
+['coredecChapeco', 'coredecMaravilha'].forEach((coredec) => {
   ['confirmados', 'curados', 'suspeitos', 'obitos', 'descartados'].forEach((typeCase) => cytiesSheets.push({
     resolve: 'gatsby-source-google-sheets',
     options: {
