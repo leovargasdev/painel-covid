@@ -6,8 +6,45 @@ export const Container = styled.div`
   flex-direction: column;
   width: 100%;
 
+  > a {
+    display: flex;
+    align-items: flex-end;
+    margin: 10px auto 20px;
+
+    font-size: 22px;
+    text-transform: uppercase;
+    color: ${({ theme }) => theme.secondary};
+
+    svg {
+      width: 25px;
+      height: 25px;
+      margin-right: 5px;
+      color: ${({ theme }) => theme.secondary};
+    }
+
+    transition-duration: 0.6s;
+
+    &:hover {
+      color: ${({ theme }) => theme.primary};
+      svg {
+        color: ${({ theme }) => theme.primary};
+      }
+    }
+  }
+
   ${media.lessThan('large')`
     padding: 5px 0;
+
+    > a {
+      margin-bottom: 10px;
+
+      font-size: 18px;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
   `}
 `;
 

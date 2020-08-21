@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FaUsers } from 'react-icons/fa';
+import { FaUsers, FaHome } from 'react-icons/fa';
 import { ThemeProvider } from 'styled-components';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import ContactForm from '~/components/ContactForm';
 import SEO from '~/components/SEO';
@@ -24,7 +25,14 @@ const LayoutCovid = ({ city, contact, route, children }) => (
     <Container>
       <GlobalStyle />
 
-      <Content>{children}</Content>
+      <Content>
+        {children}
+      </Content>
+
+      <AniLink to="/">
+        <FaHome />
+        voltar para o Ínicio
+      </AniLink>
 
       {contact && <ContactForm />}
 

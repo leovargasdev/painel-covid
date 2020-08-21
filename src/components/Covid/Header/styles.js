@@ -34,7 +34,7 @@ export const Container = styled.section`
   ${media.lessThan('large')`
     margin-bottom: 0;
     header .gatsby-image-wrapper {
-      width: 100px;
+      width: 110px;
     }
     > span {
       font-size: 11px;
@@ -67,11 +67,11 @@ export const Title = styled.div`
   ${media.lessThan('large')`
     margin-top: 10px;
     margin-left: 5px;
-    p {
+    p, span {
       margin: 0;
       padding: 0;
-      font-size: 18px;
-      line-height: 12px;
+      font-size: 20px;
+      line-height: 20px;
     }
     strong {
       font-size: 22px;

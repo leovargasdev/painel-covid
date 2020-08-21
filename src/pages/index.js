@@ -19,13 +19,18 @@ const Title = styled.h1`
   font-weight: 400;
   margin: 10px 0 20px;
   font-family: 'Palanquin Dark', sans-serif;
+
+  ${media.lessThan('large')`
+    font-size: 30px;
+  `};
 `;
 
 const InputContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   padding: 16px;
   margin-bottom: 10px;
 
@@ -61,6 +66,17 @@ const InputContainer = styled.div`
         color: ${({ theme }) => theme.purple};
       }
   `}
+
+  ${media.lessThan('large')`
+    width: 95%;
+    padding: 12px;
+
+    input {font-size: 14px;}
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  `};
 `;
 
 const Content = styled.div`
@@ -106,7 +122,6 @@ const City = styled(AniLink)`
   &:hover{
     background: ${({ theme }) => theme.blueDark};
     border-color: ${({ theme }) => theme.purple};
-    color: ${({ theme }) => theme.purple};
     transform: translateX(5px);
     -webkit-box-shadow: 5px 4px 10px 0px rgba(255,255,255,0.15);
     box-shadow: 5px 4px 10px 0px rgba(255,255,255,0.15);
@@ -153,7 +168,7 @@ const IndexPage = () => {
           <input
             name="citySearch"
             placeholder="Digite o nome da cidade"
-            onChange={(e) => setCitySearch(e.target.value)}
+            onChange={(e) => setCitySearch(e.target.value.toLowerCase())}
             onFocus={() => setFocusInput(true)}
             onBlur={() => setFocusInput(false)}
           />
