@@ -13,7 +13,7 @@ import { main } from '~/styles/themes';
 
 import imgMeta from '~/images/covid-share.png';
 
-const LayoutCovid = ({ city, contact = true, route, children }) => (
+const LayoutCovid = ({ city, contact, route, children }) => (
   <ThemeProvider theme={main}>
     <SEO
       title={`Coronavírus ${city}`}
@@ -39,9 +39,14 @@ const LayoutCovid = ({ city, contact = true, route, children }) => (
   </ThemeProvider>
 );
 
+LayoutCovid.defaultProps = {
+  contact: true
+};
+
+
 LayoutCovid.propTypes = {
   children: PropTypes.node.isRequired,
-  contact: PropTypes.bool.isRequired,
+  contact: PropTypes.bool,
   city: PropTypes.string.isRequired,
   route: PropTypes.string.isRequired
 };
