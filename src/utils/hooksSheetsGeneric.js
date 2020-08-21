@@ -32,9 +32,8 @@ const handleLabelCharts = (maxValue) => {
   return label;
 };
 
-const handleDataSheetsCovid = (cases) => {
+const handleDataSheetsCovid = (cases, maxValue) => {
   const cities = Object.keys(cases.confirmeds[0]);
-  const maxValue = cases.confirmeds.length - 1;
 
   const labels = handleLabelCharts(maxValue);
 

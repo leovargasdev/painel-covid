@@ -17,7 +17,7 @@ const PanelCovidCityTemplate = ({ pageContext }) => {
           statusCases
         }}
         subtitle={name}
-        fonte="Coordenadoria Regional da Defesa Civil, 2020."
+        fonte="Coordenadoria Regional da Defesa Civil, 2020"
       />
     </Layout>
   );

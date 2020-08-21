@@ -241,7 +241,7 @@ exports.createPages = async ({ graphql, actions }) => {
           tigrinhos
         }
       }
-      allGoogleSheetConfirmadosCoredecXanxereRow(skip: 74, filter: {totalgeral: {ne: 0}}) {
+      allGoogleSheetConfirmadosCoredecXanxereRow(skip: 65, filter: {totalgeral: {ne: 0}}) {
         nodes {
           abelardoluz
           bomjesus
@@ -517,10 +517,9 @@ exports.createPages = async ({ graphql, actions }) => {
     deaths: []
   };
 
-  console.log(confirmedsChapeco.length);
-  console.log(confirmedsMaravilha.length);
-  console.log(confirmedsMiguel.length);
-  console.log(confirmedsXanxere.length);
+  const numbers = [confirmedsChapeco.length, confirmedsMaravilha.length, confirmedsMiguel.length, confirmedsXanxere.length];
+  let minValue = 1000;
+  numbers.forEach((n) => { if (n < minValue) minValue = n; });
 
   confirmedsChapeco.forEach((confimed, index) => {
     allDataCases.confirmeds.push(Object.assign(confimed, confirmedsMaravilha[index], confirmedsMiguel[index], confirmedsXanxere[index]));
@@ -530,7 +529,7 @@ exports.createPages = async ({ graphql, actions }) => {
     allDataCases.deaths.push(Object.assign(deathsChapeco[index], deathsMaravilha[index], deathsMiguel[index], deathsXanxere[index]));
   });
 
-  const { data, labels } = handleDataSheetsCovid(allDataCases);
+  const { data, labels } = handleDataSheetsCovid(allDataCases, minValue - 1);
 
   data.forEach((item) => {
     createPage({
