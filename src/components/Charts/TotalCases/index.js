@@ -61,7 +61,7 @@ function TotalCases({ fonte, label, data: { actives, suspecteds, recovereds } })
     ]
   };
 
-  const rangeValues = { active: true, max: actives.length - 1, numberRange, setNumberRange };
+  const rangeValues = { active: true, max: actives.length, numberRange, setNumberRange };
 
   return (
     <ContainerCharts title="Acumulado de casos ativos, curados e suspeitos por dia" rangeValues={rangeValues} fonte={fonte}>

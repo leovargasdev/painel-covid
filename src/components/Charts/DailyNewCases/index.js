@@ -32,7 +32,7 @@ function DailyNewCases({ fonte, label, data: { confirmedPerDay, recoveredPerDay 
   };
 
   const rangeValues = {
-    active: true, max: confirmedPerDay.length - 1, numberRange, setNumberRange
+    active: true, max: confirmedPerDay.length, numberRange, setNumberRange
   };
 
   return (
