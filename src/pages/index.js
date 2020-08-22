@@ -35,7 +35,7 @@ const InputContainer = styled.div`
   margin-bottom: 10px;
 
   background: ${({ theme }) => theme.box};
-  border: 2px solid ${({ theme }) => theme.gray};
+  border: 2px solid ${({ theme }) => theme.border};
   border-radius: 8px;
 
   svg {
@@ -101,7 +101,7 @@ const City = styled(AniLink)`
   margin-top: 20px;
 
   background: ${({ theme }) => theme.box};
-  border: 2px solid ${({ theme }) => theme.gray};
+  border: 2px solid ${({ theme }) => theme.border};
   border-radius: 6px;
 
   transition-duration: 0.8s;

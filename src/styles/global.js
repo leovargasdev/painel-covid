@@ -10,7 +10,7 @@ const GlobalStyles = createGlobalStyle`
   }
   body {
     line-height: 1;
-    background: #000;
+    background: #191C24;
   }
   body, input, button, textarea {
     -webkit-font-smoothing: antialiased; /* Deixa a fonte mais definida */

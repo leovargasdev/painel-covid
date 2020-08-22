@@ -6,13 +6,9 @@ export const Container = styled.div`
   flex-direction: row;
   align-items: center;
 
-  /* background: ${({ theme }) => theme.box}; */
-  /* padding: 20px 15px; */
   margin-top: 10px;
-  /* border-radius: 4px; */
 
   ${media.lessThan('large')`
-    /* padding: 10px 5px; */
     flex-direction: column;
   `}
 `;
@@ -46,9 +42,10 @@ export const ItemPanel = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background: ${({ theme }) => theme.gray};
 
   padding: 12px 22px;
-  border: 2px solid ${({ theme }) => theme.gray};
+  border: 2px solid ${({ theme }) => theme.border};
   border-radius: 8px;
   transition-duration: 1s;
 

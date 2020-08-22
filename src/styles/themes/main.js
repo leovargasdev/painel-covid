@@ -6,8 +6,10 @@ export default {
   green: '#00d25b', // recovered
   greenDark: '#0C7C59', // recovered
   purple: '#a346fc',
-  box: '#191c24',
+  box: '#2C2E33',
+  border: '#3e3e3e',
   gray: '#2c2e33',
   primary: '#FFF',
-  secondary: '#6c7293'
+  secondary: '#6c7293',
+  body: '#191C24'
 };

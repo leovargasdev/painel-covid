@@ -31,11 +31,11 @@ export const Container = styled.div`
       width: 300px;
       padding: 12px 0;
       margin: 0 auto;
-      background: ${({ theme }) => theme.box};
+      background: transparent;
       font-size: 18px;
       text-transform: uppercase;
       border-radius: 4px;
-      border: 1px solid ${({ theme }) => theme.gray};
+      border: 1px solid ${({ theme }) => theme.primary};
       transition-duration: 0.6s;
 
       &:hover {
@@ -87,7 +87,7 @@ export const ContainerInput = styled.div`
   margin: 3px 0 15px;
   padding: 12px 20px;
   border-radius: 4px;
-  border: 1px solid ${({ theme }) => theme.gray};
+  border: 1px solid ${({ theme }) => theme.border};
   transition-duration: 0.3s;
 
   input, textarea {
@@ -103,7 +103,7 @@ export const ContainerInput = styled.div`
 
   ${(props) => props.isFocus
     && css`
-      background: #000;
+      background: ${({ theme }) => theme.body};
       color: #fff;
 
       input, textarea {
@@ -143,7 +143,7 @@ export const BtnContri = styled(AniLink)`
   font-size: 18px;
   text-transform: uppercase;
 
-  border: 1px solid ${({ theme }) => theme.gray};
+  border: 1px solid ${({ theme }) => theme.primary};
   border-radius: 4px;
   transition-duration: 0.6s;
 
