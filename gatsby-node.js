@@ -509,6 +509,7 @@ exports.createPages = async ({ graphql, actions }) => {
     allGoogleSheetSuspeitosCoredecXanxereRow: { nodes: suspectedsXanxere },
     allGoogleSheetObitosCoredecXanxereRow: { nodes: deathsXanxere }
   } = result.data;
+
   const allDataCases = {
     confirmeds: [],
     recovereds: [],
