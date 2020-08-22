@@ -3,21 +3,41 @@ import { FaClock, FaFacebookSquare, FaLinkedin, FaReddit, FaTelegram, FaTwitter,
 import { FacebookShareButton, LinkedinShareButton, RedditShareButton, TelegramShareButton, WhatsappShareButton, TwitterShareButton } from 'react-share';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import { Container, Title, ContainerShare, ButtonShare } from './styles';
+import { Container, Title, ContainerShare, ButtonShare, Header } from './styles';
 
-const Header = ({ name, image, date, subtitle }) => {
+const HeaderComponent = ({ name, date, subtitle }) => {
+  const aaa = useStaticQuery(graphql`
+    {
+      image: file(relativePath: { eq: "covid-icon.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 50, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
+
   const urlShare = `https://painelcoronavirus.com/${name}`;
   return (
     <Container>
-      <header>
+      <Header>
+        <div>
+          <Img fluid={aaa.image.childImageSharp.fluid} alt="Icone coronavírus" title="Icone coronavírus" />
+          <p>Painel do Coronavírus</p>
+        </div>
+        <strong>{subtitle}</strong>
+      </Header>
+      {/* <header>
         {image && <Img fluid={image} alt="Bandeira do município" title="Bandeira do município" />}
         <Title>
-          <p>Painel do</p>
-          <strong>Coronavírus</strong>
+          <p>Painel do Coronavírus</p>
+          <strong>{subtitle}</strong>
           {subtitle && <span>{subtitle}</span>}
         </Title>
-      </header>
+      </header> */}
       <span>
         <FaClock size={14} /> Atualizado as: {date}
       </span>
@@ -71,16 +91,14 @@ const Header = ({ name, image, date, subtitle }) => {
   );
 };
 
-export default Header;
+export default HeaderComponent;
 
-Header.defaultProps = {
-  subtitle: '',
-  image: ''
+HeaderComponent.defaultProps = {
+  subtitle: ''
 };
 
-Header.propTypes = {
+HeaderComponent.propTypes = {
   name: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
-  date: PropTypes.string.isRequired,
-  image: PropTypes.string
+  date: PropTypes.string.isRequired
 };

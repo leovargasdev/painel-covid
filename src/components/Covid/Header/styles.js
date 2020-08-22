@@ -6,22 +6,10 @@ export const Container = styled.section`
   flex-direction: column;
   margin-bottom: 10px;
 
-  header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-
-    .gatsby-image-wrapper {
-      width: 230px;
-    }
-  }
-
   > span {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
     color: ${({ theme }) => theme.primary};
     font-size: 14px;
     font-weight: 300;
@@ -45,12 +33,46 @@ export const Container = styled.section`
   `}
 `;
 
+export const Header = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > div {
+    display: flex;
+    align-items: center;
+    /* margin-top: -4px; */
+    .gatsby-image-wrapper {
+      width: 30px;
+      margin: 0;
+    }
+
+    p {
+      font-family: 'Palanquin Dark', sans-serif;
+      font-weight: 600;
+      font-size: 22px;
+      margin-left: 10px;
+      text-transform: uppercase;
+      padding: 0;
+    }
+  }
+
+  strong {
+    margin: 0;
+    font-size: 90px;
+    font-weight: 600;
+    font-style: italic;
+  }
+  /* margin-bottom: 8px; */
+`;
+
 export const Title = styled.div`
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
   color: ${({ theme }) => theme.primary};
   text-transform: uppercase;
-  margin-top: 15px; /* Compensar as bordas da imagem, e alinhar os dois horizontalmente */
+  /* margin-top: 15px; Compensar as bordas da imagem, e alinhar os dois horizontalmente */
   margin-left: 10px;
 
   p, span {
@@ -80,7 +102,7 @@ export const Title = styled.div`
 `;
 
 export const ContainerShare = styled.div`
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
 
