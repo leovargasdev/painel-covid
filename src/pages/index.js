@@ -104,7 +104,7 @@ const City = styled(AniLink)`
   border: 2px solid ${({ theme }) => theme.border};
   border-radius: 6px;
 
-  transition-duration: 0.8s;
+  -webkit-transition: transform 2s; /* transform para o hover out */
 
   span {
     flex: 1;
@@ -120,15 +120,20 @@ const City = styled(AniLink)`
   }
 
   &:hover{
+    border-top-color: ${({ theme }) => theme.purple};
+    border-right-color: ${({ theme }) => theme.purple};
+    border-bottom-color: ${({ theme }) => theme.purple};
+    border-left-color: ${({ theme }) => theme.purple};
     background: ${({ theme }) => theme.blueDark};
-    border-color: ${({ theme }) => theme.purple};
+
     transform: translateX(5px);
-    -webkit-box-shadow: 5px 4px 10px 0px rgba(255,255,255,0.15);
-    box-shadow: 5px 4px 10px 0px rgba(255,255,255,0.15);
+    transition: border-top-color .5s linear, border-right-color 1s linear, border-bottom-color 1.5s linear, border-left-color 2s linear, background 1s, transform 1s;
+
     cursor: pointer;
 
     svg, span {
       color: ${({ theme }) => theme.purple};
+      transition: color 2s;
     }
   }
 
