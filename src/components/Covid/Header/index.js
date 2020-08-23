@@ -12,7 +12,7 @@ const HeaderComponent = ({ name, route, dateUpdate }) => {
     {
       image: file(relativePath: { eq: "covid-icon.png" }) {
         childImageSharp {
-          fluid(maxWidth: 50, quality: 100) {
+          fluid(maxWidth: 70, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -25,7 +25,9 @@ const HeaderComponent = ({ name, route, dateUpdate }) => {
     <Container>
       <Header>
         <div>
-          <Img fluid={imageDefault.image.childImageSharp.fluid} alt="Icone coronavírus" title="Icone coronavírus" />
+          <span>
+            <Img fluid={imageDefault.image.childImageSharp.fluid} alt="Icone coronavírus" title="Icone coronavírus" />
+          </span>
           <strong>{name}</strong>
         </div>
         <p>Painel do Coronavírus</p>

@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components';
 import { FaAngleRight, FaSearch } from 'react-icons/fa';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import media from 'styled-media-query';
+import Img from 'gatsby-image';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import Layout from '~/components/Layout';
 import listCities from '../../cities';
@@ -15,13 +17,24 @@ const Container = styled.main`
 `;
 
 const Title = styled.h1`
-  font-size: 48px;
+  display: flex;
+  align-items: flex-end;
+  font-size: 75px;
   font-weight: 400;
   margin: 10px 0 20px;
   font-family: 'Palanquin Dark', sans-serif;
 
+  > div {
+    width: 60px;
+    margin-right: 16px;
+  }
+
   ${media.lessThan('large')`
     font-size: 30px;
+    > div {
+      width: 26px;
+      margin-right: 8px;
+    }
   `};
 `;
 
@@ -153,6 +166,17 @@ const City = styled(AniLink)`
 `;
 
 const IndexPage = () => {
+  const imageDefault = useStaticQuery(graphql`
+    {
+      image: file(relativePath: { eq: "covid-icon.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 100, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
   const originalCities = Object.keys(listCities).sort();
   const [cities, setCities] = useState(originalCities);
   const [focusInput, setFocusInput] = useState(false);
@@ -166,7 +190,12 @@ const IndexPage = () => {
   return (
     <Layout route="/" city="Painel" contact={false}>
       <Container>
-        <Title>Painel do Coronavírus</Title>
+        <Title>
+          <div>
+            <Img fluid={imageDefault.image.childImageSharp.fluid} alt="Icone coronavírus" title="Icone coronavírus" />
+          </div>
+          Painel do Coronavírus
+        </Title>
 
         <InputContainer isFocus={focusInput}>
           <FaSearch />
