@@ -9,8 +9,7 @@ import oeste from '~/utils/querySheets/oeste';
 const CovidPageOeste = () => {
   const {
     allGoogleSheetCovidCidadesOesteRow: { nodes: casesLocation },
-    allGoogleSheetCovidOesteRow: { nodes: covidSheet },
-    flagImage: { childImageSharp: { fluid: imageCity } }
+    allGoogleSheetCovidOesteRow: { nodes: covidSheet }
   } = JSON.parse(oeste());
 
   const fonte = 'Coordenadorias Regionais de Defesa Civil, 2020';
@@ -20,11 +19,10 @@ const CovidPageOeste = () => {
   return (
     <Layout city="Oeste Catarinense" route="oeste-catarinense">
       <Covid
-        name="oeste"
+        name="Oeste Catarinense"
+        route="oeste-catarinense"
         data={{ ...data, casesLocation }}
         fonte={fonte}
-        image={imageCity}
-        subtitle="Oeste Catarinense"
       />
     </Layout>
   );

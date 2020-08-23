@@ -16,9 +16,9 @@ import Header from './Header';
 
 import { Container, ChartsInRow } from './styles';
 
-const Covid = ({ name, data, image, fonte, subtitle }) => (
+const Covid = ({ name, route, data, fonte }) => (
   <Container>
-    <Header name={name} date={data.lastUpdate} image={image} subtitle={subtitle} />
+    <Header route={route} dateUpdate={data.lastUpdate} name={name} />
 
     <StatusCovid data={data.statusCases} />
 
@@ -26,7 +26,7 @@ const Covid = ({ name, data, image, fonte, subtitle }) => (
 
     <DailyNewCases label={data.label} data={data.cases} fonte={fonte} />
 
-    {name === 'chapeco' && (
+    {route === 'chapeco' && (
       <>
         <HospitalOccupation data={data.hospitalOccupation} />
 
@@ -41,23 +41,21 @@ const Covid = ({ name, data, image, fonte, subtitle }) => (
         <HeatMap lat={-27.0994261} lng={-52.6383303} zoom={12} data={data.casesNeighborhoods} />
       </>
     )}
-    {name === 'oeste'
+    {route === 'oeste-catarinense'
       && <HeatMap lat={-26.7976155} lng={-53} zoom={9.3} data={data.casesLocation} />}
-    {name.includes('coredec') && <CasesForCities data={data.CasesForCities} fonte={fonte} />}
+    {route.includes('coredec') && <CasesForCities data={data.CasesForCities} fonte={fonte} />}
   </Container>
 );
 
 Covid.defaultProps = {
-  subtitle: '',
-  image: ''
+  name: ''
 };
 
 Covid.propTypes = {
   data: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  name: PropTypes.string.isRequired,
+  route: PropTypes.string.isRequired,
   fonte: PropTypes.string.isRequired,
-  image: PropTypes.string,
-  subtitle: PropTypes.string
+  name: PropTypes.string
 };
 
 export default Covid;

@@ -23,13 +23,6 @@ const queries = () => {
           cases
         }
       }
-      flagImage: file(relativePath: { eq: "flags/oeste.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 230, quality: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
     }
   `);
   return JSON.stringify(data);

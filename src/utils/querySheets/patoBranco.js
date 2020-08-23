@@ -24,13 +24,6 @@ const queries = () => {
         recovered
         suspected
       }
-      flagImage: file(relativePath: { eq: "flags/pato-branco.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 230, quality: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
     }
   `);
   return JSON.stringify(data);

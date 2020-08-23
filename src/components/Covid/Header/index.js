@@ -5,10 +5,10 @@ import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import { Container, Title, ContainerShare, ButtonShare, Header } from './styles';
+import { Container, ContainerShare, ButtonShare, Header } from './styles';
 
-const HeaderComponent = ({ name, date, subtitle }) => {
-  const aaa = useStaticQuery(graphql`
+const HeaderComponent = ({ name, route, dateUpdate }) => {
+  const imageDefault = useStaticQuery(graphql`
     {
       image: file(relativePath: { eq: "covid-icon.png" }) {
         childImageSharp {
@@ -20,18 +20,18 @@ const HeaderComponent = ({ name, date, subtitle }) => {
     }
   `);
 
-  const urlShare = `https://painelcoronavirus.com/${name}`;
+  const urlShare = `https://painelcoronavirus.com/${route}`;
   return (
     <Container>
       <Header>
         <div>
-          <Img fluid={aaa.image.childImageSharp.fluid} alt="Icone coronavírus" title="Icone coronavírus" />
-          <strong>{subtitle}</strong>
+          <Img fluid={imageDefault.image.childImageSharp.fluid} alt="Icone coronavírus" title="Icone coronavírus" />
+          <strong>{name}</strong>
         </div>
         <p>Painel do Coronavírus</p>
       </Header>
       <span>
-        <FaClock size={14} /> Atualizado as: {date}
+        <FaClock size={14} /> Atualizado as: {dateUpdate}
       </span>
       <ContainerShare>
         <span>Compartilhe o projeto</span>
@@ -52,7 +52,7 @@ const HeaderComponent = ({ name, date, subtitle }) => {
 
           <ButtonShare color="#1DA1F2">
             <FaTwitter />
-            <TwitterShareButton title="Acesse:" url={urlShare} hashtags={['covid', name, 'painel', 'coronavirus']}>
+            <TwitterShareButton title="Acesse:" url={urlShare} hashtags={['covid', route, 'painel', 'coronavirus']}>
               Twitter
             </TwitterShareButton>
           </ButtonShare>
@@ -85,12 +85,8 @@ const HeaderComponent = ({ name, date, subtitle }) => {
 
 export default HeaderComponent;
 
-HeaderComponent.defaultProps = {
-  subtitle: ''
-};
-
 HeaderComponent.propTypes = {
+  route: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  subtitle: PropTypes.string,
-  date: PropTypes.string.isRequired
+  dateUpdate: PropTypes.string.isRequired
 };

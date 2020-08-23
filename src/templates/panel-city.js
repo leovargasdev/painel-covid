@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Layout from '../components/Layout';
-import Covid from '../components/Covid';
+import Layout from '~/components/Layout';
+import Covid from '~/components/Covid';
 
 const PanelCovidCityTemplate = ({ pageContext }) => {
   const { data: { cases, statusCases }, slug, label, name, lastUpdate } = pageContext;
@@ -10,14 +10,14 @@ const PanelCovidCityTemplate = ({ pageContext }) => {
   return (
     <Layout route={slug} city={name}>
       <Covid
-        name={slug}
+        name={name}
+        route={slug}
         data={{
           label,
           cases,
           lastUpdate,
           statusCases
         }}
-        subtitle={name}
         fonte="Coordenadoria Regional da Defesa Civil, 2020"
       />
     </Layout>

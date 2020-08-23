@@ -67,13 +67,6 @@ const queries = () => {
           total
         }
       }
-      flagImage: file(relativePath: { eq: "flags/chapeco.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 230, quality: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
     }
   `);
   return JSON.stringify(data);

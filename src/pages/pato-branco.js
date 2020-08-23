@@ -9,8 +9,7 @@ import handleDataSimpleSheetsCovid from '~/utils/hooksSheetsSimple';
 const CovidPagePatoBranco = () => {
   const {
     allGoogleSheetCovidPatoBrancoRow: { nodes: covidSheet },
-    googleSheetCovidPatoBrancoRow: statusCases,
-    flagImage: { childImageSharp: { fluid: imageCity } }
+    googleSheetCovidPatoBrancoRow: statusCases
   } = JSON.parse(patoBranco());
 
   const fonte = 'Dados referentes aos Boletins Coronavírus de Pato Branco, 2020';
@@ -18,7 +17,7 @@ const CovidPagePatoBranco = () => {
 
   return (
     <LayoutCovid city="Pato Branco" route="pato-branco">
-      <Covid name="pato-branco" data={data} fonte={fonte} image={imageCity} subtitle="Pato Branco" />
+      <Covid name="Pato Branco" route="pato-branco" data={data} fonte={fonte} />
     </LayoutCovid>
   );
 };

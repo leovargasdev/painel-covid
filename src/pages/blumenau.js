@@ -9,8 +9,7 @@ import handleDataSimpleSheetsCovid from '~/utils/hooksSheetsSimple';
 const CovidPageBlumenau = () => {
   const {
     allGoogleSheetCovidBlumenauRow: { nodes: covidSheet },
-    googleSheetCovidBlumenauRow: statusCases,
-    flagImage: { childImageSharp: { fluid: imageCity } }
+    googleSheetCovidBlumenauRow: statusCases
   } = JSON.parse(blumenau());
 
   const fonte = 'Dados referentes aos Boletins Coronavírus de Blumenau, 2020';
@@ -18,7 +17,7 @@ const CovidPageBlumenau = () => {
 
   return (
     <LayoutCovid city="Blumenau" route="blumenau">
-      <Covid name="blumenau" data={data} fonte={fonte} image={imageCity} subtitle="Blumenau" />
+      <Covid route="blumenau" data={data} fonte={fonte} name="Blumenau" />
     </LayoutCovid>
   );
 };

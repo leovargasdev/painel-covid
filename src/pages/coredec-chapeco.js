@@ -48,10 +48,10 @@ const CovidPageCoredecChapeco = () => {
   return (
     <Layout city="Coredec Chapecó" route="coredec-chapeco">
       <Covid
-        name="coredec-chapeco"
+        name="Coordenadoria Regional de Chapecó"
+        route="coredec-chapeco"
         data={{ ...data, CasesForCities }}
         fonte="Coordenadoria Regional da Defesa Civil de Chapecó, 2020"
-        subtitle="Coordenadoria Regional de Chapecó"
       />
     </Layout>
   );
