@@ -41,70 +41,55 @@ export const Header = styled.div`
   > div {
     display: flex;
     align-items: center;
-    /* margin-top: -4px; */
+    margin-bottom: 10px;
+
     .gatsby-image-wrapper {
-      width: 30px;
-      margin: 0;
+      margin-top: 15px;
+      width: 50px;
     }
 
-    p {
+    strong {
       font-family: 'Palanquin Dark', sans-serif;
       font-weight: 600;
-      font-size: 22px;
+      font-size: 80px;
       margin-left: 10px;
-      text-transform: uppercase;
       padding: 0;
     }
   }
 
-  strong {
+  p {
     margin: 0;
-    font-size: 90px;
+    font-size: 20px;
     font-weight: 600;
     font-style: italic;
+    text-transform: uppercase;
   }
-  /* margin-bottom: 8px; */
-`;
+  margin-bottom: 5px;
 
-export const Title = styled.div`
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  color: ${({ theme }) => theme.primary};
-  text-transform: uppercase;
-  /* margin-top: 15px; Compensar as bordas da imagem, e alinhar os dois horizontalmente */
-  margin-left: 10px;
-
-  p, span {
-    margin: 0;
-    font-size: 38px;
-    font-weight: 400;
-    line-height: 38px;
-  }
-  strong {
-    font-size: 50px;
-    font-weight: 700;
-  }
-
-  ${media.lessThan('large')`
-    margin-top: 10px;
-    margin-left: 5px;
-    p, span {
-      margin: 0;
-      padding: 0;
-      font-size: 20px;
-      line-height: 20px;
+  ${media.lessThan('medium')`
+    margin: 10px 0 2px;
+    > div {
+      .gatsby-image-wrapper {
+        margin-top: 2px;
+        width: 30px;
+      }
+      strong {
+        font-size: 30px;
+        margin-left: 5px;
+        padding: 0;
+      }
     }
-    strong {
-      font-size: 22px;
+    p {
+      font-size: 14px;
     }
-  `}
+  `};
 `;
 
 export const ContainerShare = styled.div`
   display: none;
   flex-direction: column;
   align-items: center;
+  margin-top: 10px;
 
   > span {
     margin: 6px 0 4px;

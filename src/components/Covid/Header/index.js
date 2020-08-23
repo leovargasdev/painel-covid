@@ -26,18 +26,10 @@ const HeaderComponent = ({ name, date, subtitle }) => {
       <Header>
         <div>
           <Img fluid={aaa.image.childImageSharp.fluid} alt="Icone coronavírus" title="Icone coronavírus" />
-          <p>Painel do Coronavírus</p>
-        </div>
-        <strong>{subtitle}</strong>
-      </Header>
-      {/* <header>
-        {image && <Img fluid={image} alt="Bandeira do município" title="Bandeira do município" />}
-        <Title>
-          <p>Painel do Coronavírus</p>
           <strong>{subtitle}</strong>
-          {subtitle && <span>{subtitle}</span>}
-        </Title>
-      </header> */}
+        </div>
+        <p>Painel do Coronavírus</p>
+      </Header>
       <span>
         <FaClock size={14} /> Atualizado as: {date}
       </span>

@@ -50,7 +50,7 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Painel Coronavirus',
-        short_name: 'starter',
+        short_name: 'Painel Coronavirus',
         start_url: '/',
         background_color: '#f7f0eb',
         theme_color: '#0b1a32',

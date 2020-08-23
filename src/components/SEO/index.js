@@ -26,7 +26,7 @@ const SEO = ({ description, meta, title, image, route }) => {
     <Helmet
       htmlAttributes={{ lang: 'pt-br' }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate="%s"
       meta={[
         {
           name: 'description',
