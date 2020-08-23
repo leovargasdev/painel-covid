@@ -6,7 +6,7 @@ const googlePrivateKey = process.env.GOOGLE_API_PRIVATE_KEY.replace(
 const cytiesSheets = [];
 // Dados Chapeco
 
-const cyties = ['chapeco', 'blumenau', 'oeste', 'patoBranco'];
+const cyties = ['chapeco', 'blumenau', 'oeste', 'patoBranco', 'coredecChapeco'];
 
 const idsSheets = {
   chapeco: '1LH6l05MUXcXi-dJH25sV7bbq_nWCeldlDy_Kf-cLLMk',
