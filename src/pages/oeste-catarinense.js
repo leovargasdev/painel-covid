@@ -13,7 +13,7 @@ const CovidPageOeste = () => {
     allGoogleSheetCovidOesteRow: { nodes: covidSheet }
   } = JSON.parse(oeste());
 
-  const fonte = 'Coordenadorias Regionais de Defesa Civil, 2020';
+  const fonte = 'Coordenadorias Regionais da Defesa Civil, 2020';
   const statusCases = covidSheet[covidSheet.length - 1];
   const data = handleDataSimpleSheetsCovid({ covidSheet, statusCases });
 
@@ -22,7 +22,7 @@ const CovidPageOeste = () => {
       <Covid
         name="Oeste Catarinense"
         route="oeste-catarinense"
-        data={{ ...data }}
+        data={data}
         fonte={fonte}
       />
       <HeatMap lat={-26.7976155} lng={-53} zoom={9.3} data={casesLocation} />

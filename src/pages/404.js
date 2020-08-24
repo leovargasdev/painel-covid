@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import SEO from '~/components/SEO';
+import Layout from '~/components/Layout';
 
 const Container = styled.div`
   display: flex;
@@ -13,7 +14,6 @@ const Container = styled.div`
   h1 {
     color: #FF5E5B;
     font-size: 60px;
-    line-height: 0px;
     text-transform: uppercase;
   }
   p {
@@ -22,13 +22,13 @@ const Container = styled.div`
 `;
 
 const NotFoundPage = () => (
-  <>
+  <Layout>
     <SEO title="404: Not found" />
     <Container>
       <h1>Página Não Encontrada</h1>
       <p>Por favor, verifique seu caminho!</p>
     </Container>
-  </>
+  </Layout>
 );
 
 export default NotFoundPage;
