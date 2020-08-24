@@ -10,17 +10,3 @@ export const Container = styled.div`
     padding: 0 5px;
   `}
 `;
-
-export const ChartsInRow = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-
-  ${media.lessThan('large')`
-    flex-direction: column;
-
-    div {
-      width: 100%!important;
-    }
-  `}
-`;

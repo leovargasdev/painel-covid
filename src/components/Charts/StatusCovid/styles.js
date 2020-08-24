@@ -5,7 +5,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-
   margin-top: 10px;
 
   ${media.lessThan('large')`
@@ -24,9 +23,6 @@ export const Chart = styled.div`
 export const RightPanel = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 30px 0;
-  height: 100%;
 
   ${media.lessThan('large')`
     display: grid;
@@ -40,7 +36,6 @@ export const RightPanel = styled.div`
 export const ItemPanel = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
   background: ${({ theme }) => theme.gray};
 
@@ -48,6 +43,10 @@ export const ItemPanel = styled.div`
   border: 2px solid ${({ theme }) => theme.border};
   border-radius: 8px;
   transition-duration: 1s;
+
+  & + div {
+    margin-top: 15px;
+  }
 
   svg {
     width: 60px;
@@ -92,6 +91,10 @@ export const ItemPanel = styled.div`
   ${media.lessThan('large')`
     margin: 2px 0;
     padding: 5px 25px;
+
+    & + div {
+      margin-top: 0;
+    }
 
     svg {
       width: 35px;
