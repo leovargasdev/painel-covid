@@ -6,7 +6,7 @@ const googlePrivateKey = process.env.GOOGLE_API_PRIVATE_KEY.replace(
 const cytiesSheets = [];
 // Dados Chapeco
 
-const cyties = ['chapeco', 'blumenau', 'oeste', 'patoBranco', 'coredecChapeco'];
+const cyties = ['chapeco', 'blumenau', 'oeste', 'patoBranco'];
 
 const idsSheets = {
   chapeco: '1LH6l05MUXcXi-dJH25sV7bbq_nWCeldlDy_Kf-cLLMk',
@@ -57,7 +57,7 @@ cytiesSheets.push({
 });
 
 ['coredecChapeco', 'coredecMaravilha', 'coredecMiguel', 'coredecXanxere'].forEach((coredec) => {
-  ['confirmados', 'curados', 'suspeitos', 'obitos', 'descartados'].forEach((typeCase) => cytiesSheets.push({
+  ['covid', 'confirmados', 'curados', 'suspeitos', 'obitos', 'descartados'].forEach((typeCase) => cytiesSheets.push({
     resolve: 'gatsby-source-google-sheets',
     options: {
       spreadsheetId: idsSheets[coredec],
