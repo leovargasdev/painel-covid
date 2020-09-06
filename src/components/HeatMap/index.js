@@ -138,7 +138,7 @@ const HeatMap = ({ lat, lng, zoom, data: casesLocation }) => {
         <Notas>
           <h6>Notas</h6>
           <ul>
-            <li>Dados referentes à data 21/08/2020</li>
+            <li>Dados referentes à data 05/09/2020</li>
             <li>
               Para o mapeamento dos bairros foi usado o <a href={linkPlanoDiretor} target="_new">plano diretor</a> de 2014.
             </li>
