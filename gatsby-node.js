@@ -519,7 +519,7 @@ exports.createPages = async ({ graphql, actions }) => {
   };
 
   // const minValue = [confirmedsChapeco.length, confirmedsMaravilha.length, confirmedsMiguel.length, confirmedsXanxere.length].sort()[0];
-  const minValue = confirmedsChapeco.length - 3;
+  const minValue = confirmedsChapeco.length;
   console.log('SADASDASDASD', minValue);
   // console.log(confirmedsChapeco.length, confirmedsMaravilha.length, confirmedsMiguel.length, confirmedsXanxere.length);
   confirmedsChapeco.forEach((confimed, index) => {
