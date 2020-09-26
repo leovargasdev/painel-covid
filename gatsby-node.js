@@ -3,6 +3,24 @@ const { handleDataSheetsCovid } = require('./src/utils/hooksSheetsGeneric');
 
 const cities = require('./cities');
 
+const createPageCitiesCoredec = (cases, createPage, panelCity, initialDate = '6-01-2020') => {
+  const { data, labels, lastUpdate } = handleDataSheetsCovid(cases, initialDate);
+
+  data.forEach((item) => {
+    createPage({
+      path: cities[item.city].slug,
+      component: panelCity,
+      context: {
+        lastUpdate,
+        data: item,
+        name: cities[item.city].name,
+        label: labels,
+        slug: cities[item.city].slug
+      }
+    });
+  });
+};
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
@@ -241,7 +259,7 @@ exports.createPages = async ({ graphql, actions }) => {
           tigrinhos
         }
       }
-      allGoogleSheetConfirmadosCoredecXanxereRow(skip: 65, filter: {totalgeral: {ne: 0}}) {
+      allGoogleSheetConfirmadosCoredecXanxereRow(filter: {totalgeral: {ne: 0}}) {
         nodes {
           abelardoluz
           bomjesus
@@ -265,7 +283,7 @@ exports.createPages = async ({ graphql, actions }) => {
           xaxim
         }
       }
-      allGoogleSheetCuradosCoredecXanxereRow(skip: 74) {
+      allGoogleSheetCuradosCoredecXanxereRow {
         nodes {
           abelardoluz
           bomjesus
@@ -289,7 +307,7 @@ exports.createPages = async ({ graphql, actions }) => {
           xaxim
         }
       }
-      allGoogleSheetDescartadosCoredecXanxereRow(skip: 74) {
+      allGoogleSheetDescartadosCoredecXanxereRow {
         nodes {
           abelardoluz
           bomjesus
@@ -313,7 +331,7 @@ exports.createPages = async ({ graphql, actions }) => {
           xaxim
         }
       }
-      allGoogleSheetSuspeitosCoredecXanxereRow(skip: 74) {
+      allGoogleSheetSuspeitosCoredecXanxereRow {
         nodes {
           abelardoluz
           bomjesus
@@ -337,7 +355,7 @@ exports.createPages = async ({ graphql, actions }) => {
           xaxim
         }
       }
-      allGoogleSheetObitosCoredecXanxereRow(skip: 74) {
+      allGoogleSheetObitosCoredecXanxereRow {
         nodes {
           abelardoluz
           bomjesus
@@ -496,7 +514,7 @@ exports.createPages = async ({ graphql, actions }) => {
     allGoogleSheetDescartadosCoredecMaravilhaRow: { nodes: discardedsMaravilha },
     allGoogleSheetSuspeitosCoredecMaravilhaRow: { nodes: suspectedsMaravilha },
     allGoogleSheetObitosCoredecMaravilhaRow: { nodes: deathsMaravilha },
-    // COREDEC SÃO MIGUEL
+    // // COREDEC SÃO MIGUEL
     allGoogleSheetConfirmadosCoredecMiguelRow: { nodes: confirmedsMiguel },
     allGoogleSheetCuradosCoredecMiguelRow: { nodes: recoveredsMiguel },
     allGoogleSheetDescartadosCoredecMiguelRow: { nodes: discardedsMiguel },
@@ -510,38 +528,35 @@ exports.createPages = async ({ graphql, actions }) => {
     allGoogleSheetObitosCoredecXanxereRow: { nodes: deathsXanxere }
   } = result.data;
 
-  const allDataCases = {
-    confirmeds: [],
-    recovereds: [],
-    discardeds: [],
-    suspecteds: [],
-    deaths: []
-  };
+  createPageCitiesCoredec({
+    confirmeds: confirmedsChapeco,
+    recovereds: recoveredsChapeco,
+    discardeds: discardedsChapeco,
+    deaths: deathsChapeco,
+    suspecteds: suspectedsChapeco
+  }, createPage, panelCity);
 
-  // const minValue = [confirmedsChapeco.length, confirmedsMaravilha.length, confirmedsMiguel.length, confirmedsXanxere.length].sort()[0];
-  const minValue = confirmedsChapeco.length - 2;
-  // console.log(confirmedsChapeco.length, confirmedsMaravilha.length, confirmedsMiguel.length, confirmedsXanxere.length);
-  confirmedsChapeco.forEach((confimed, index) => {
-    allDataCases.confirmeds.push(Object.assign(confimed, confirmedsMaravilha[index], confirmedsMiguel[index], confirmedsXanxere[index]));
-    allDataCases.recovereds.push(Object.assign(recoveredsChapeco[index], recoveredsMaravilha[index], recoveredsMiguel[index], recoveredsXanxere[index]));
-    allDataCases.discardeds.push(Object.assign(discardedsChapeco[index], discardedsMaravilha[index], discardedsMiguel[index], discardedsXanxere[index]));
-    allDataCases.suspecteds.push(Object.assign(suspectedsChapeco[index], suspectedsMaravilha[index], suspectedsMiguel[index], suspectedsXanxere[index]));
-    allDataCases.deaths.push(Object.assign(deathsChapeco[index], deathsMaravilha[index], deathsMiguel[index], deathsXanxere[index]));
-  });
+  createPageCitiesCoredec({
+    confirmeds: confirmedsMaravilha,
+    recovereds: recoveredsMaravilha,
+    discardeds: discardedsMaravilha,
+    deaths: deathsMaravilha,
+    suspecteds: suspectedsMaravilha
+  }, createPage, panelCity);
 
-  const { data, labels, lastUpdate } = handleDataSheetsCovid(allDataCases, minValue);
+  createPageCitiesCoredec({
+    confirmeds: confirmedsMiguel,
+    recovereds: recoveredsMiguel,
+    discardeds: discardedsMiguel,
+    deaths: deathsMiguel,
+    suspecteds: suspectedsMiguel
+  }, createPage, panelCity);
 
-  data.forEach((item) => {
-    createPage({
-      path: cities[item.city].slug,
-      component: panelCity,
-      context: {
-        lastUpdate,
-        data: item,
-        name: cities[item.city].name,
-        label: labels,
-        slug: cities[item.city].slug
-      }
-    });
-  });
+  createPageCitiesCoredec({
+    confirmeds: confirmedsXanxere,
+    recovereds: recoveredsXanxere,
+    discardeds: discardedsXanxere,
+    deaths: deathsXanxere,
+    suspecteds: suspectedsXanxere
+  }, createPage, panelCity, '3-19-2020');
 };
