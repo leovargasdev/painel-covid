@@ -2,11 +2,10 @@
 const { format, addDays } = require('date-fns');
 const pt = require('date-fns/locale/pt');
 
-const handleDataSheetCovid = (cities, { confirmeds,
-  recovereds,
-  suspecteds,
-  deaths,
-  discardeds }, lastValue) => {
+const handleDataSheetCovid = (cases, lastValue) => {
+  const { confirmeds, recovereds, suspecteds, deaths, discardeds } = cases;
+  const cities = Object.keys(confirmeds[0]);
+
   const data = cities.map((city) => ({
     city,
     cases: {
@@ -58,11 +57,10 @@ const handleLabelCharts = (maxValue, firstDate) => {
 
 const handleDataSheetsCovid = (cases, initialDate) => {
   const firstDate = new Date(initialDate);
-  const cities = Object.keys(cases.confirmeds[0]);
   const lastValue = cases.confirmeds.length - 1;
 
   return {
-    data: handleDataSheetCovid(cities, cases, lastValue),
+    data: handleDataSheetCovid(cases, lastValue),
     labels: handleLabelCharts(lastValue, firstDate),
     lastUpdate: format(addDays(firstDate, lastValue), "dd' de 'MMMM' de 'yyyy'", { locale: pt }) };
 };

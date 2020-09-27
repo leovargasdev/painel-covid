@@ -63,17 +63,16 @@ const handleDataSheetAgesCovid = (rows) => {
   });
 
   const datasets = ranges.map((range, index) => ({
-    ffill: 'origin',
+    fill: 'origin',
     label: ages[index],
     backgroundColor: 'rgba(0,0,0,0.07)',
     borderColor: colors[index],
     borderJoinStyle: 'miter', // Forma das curvas
     pointBorderColor: colors[index],
-    pointBackgroundColor: shade(0.1, colors[index]),
     pointBorderWidth: 1,
-    pointHoverBackgroundColor: colors[index],
-    pointRadius: 2,
     pointHoverRadius: 3,
+    pointHoverBackgroundColor: colors[index],
+    pointRadius: 1,
     pointHitRadius: 10,
     data: range
   }));
