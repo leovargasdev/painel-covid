@@ -7,7 +7,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 const queries = () => {
   const data = useStaticQuery(graphql`
     {
-      allGoogleSheetCovidOesteRow(filter: {actives: {gte: 800}}) {
+      allGoogleSheetCovidOesteRow(filter: {actives: {gte: 400}}) {
         nodes {
           confirmed
           deaths
