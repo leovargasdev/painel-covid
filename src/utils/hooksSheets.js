@@ -1,6 +1,5 @@
 import { format, addDays } from 'date-fns';
 import pt from 'date-fns/locale/pt';
-import { shade } from 'polished';
 
 export const handleDataSheetCovid = (rows) => {
   const confirmeds = [];

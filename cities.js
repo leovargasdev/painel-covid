@@ -3,6 +3,11 @@ module.exports = {
   // blumenau: { name: 'Blumenau', slug: 'blumenau' },
   patobranco: { name: 'Pato Branco', slug: 'pato-branco' },
   oeste: { name: 'Oeste Catarinense', slug: 'oeste-catarinense' },
+
+  coredecChapeco: { name: 'Coordenadoria de Chapecó', slug: 'coredec-chapeco' },
+  coredecMaravilha: { name: 'Coordenadoria de Maravilha', slug: 'coredec-maravilha' },
+  coredecXanxere: { name: 'Coordenadoria de Xanxere', slug: 'coredec-xanxere' },
+  coredecMiguel: { name: 'Coordenadoria de São Miguel', slug: 'coredec-miguel' },
   // COREDEC CHAPECÓ
   aguasdechapeco: { name: 'Águas de Chapecó', slug: 'aguas-de-chapeco' },
   aguasfrias: { name: 'Águas Frias', slug: 'aguas-frias' },
