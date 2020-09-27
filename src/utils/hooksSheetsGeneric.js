@@ -1,46 +1,12 @@
+/* eslint-disable max-len */
 const { format, addDays } = require('date-fns');
-const ptBr = require('date-fns/locale/pt-BR');
+const pt = require('date-fns/locale/pt');
 
 const handleDataSheetCovid = (cities, { confirmeds,
   recovereds,
   suspecteds,
-  deaths }, data) => {
-  for (let k = 0; k < confirmeds.length - 1; k += 1) {
-    cities.forEach((city, index) => {
-      data[index].cases.suspecteds.push(suspecteds[k][city]);
-      data[index].cases.confirmeds.push(confirmeds[k][city]);
-      data[index].cases.recovereds.push(recovereds[k][city]);
-
-      const active = confirmeds[k][city] - (recovereds[k][city] + deaths[k][city]);
-      data[index].cases.actives.push(active);
-
-      data[index].cases.confirmedPerDay.push(
-        k ? confirmeds[k][city] - confirmeds[k - 1][city] : confirmeds[k][city]
-      );
-      data[index].cases.recoveredPerDay.push(
-        k ? recovereds[k][city] - recovereds[k - 1][city] : recovereds[k][city]
-      );
-    });
-  }
-};
-
-const handleLabelCharts = (maxValue, initialDate) => {
-  const firstDate = new Date(initialDate);
-  const label = [];
-  for (let i = 0; i < maxValue; i += 1) {
-    label.push(format(addDays(firstDate, i), 'MMM dd', {
-      locale: ptBr
-    }));
-  }
-  return label;
-};
-
-const handleDataSheetsCovid = (cases, initialDate) => {
-  const cities = Object.keys(cases.confirmeds[0]);
-  const LAST_ITEM_DATA = cases.confirmeds.length - 1;
-
-  const labels = handleLabelCharts(LAST_ITEM_DATA, initialDate);
-
+  deaths,
+  discardeds }, lastValue) => {
   const data = cities.map((city) => ({
     city,
     cases: {
@@ -53,20 +19,52 @@ const handleDataSheetsCovid = (cases, initialDate) => {
     },
     statusCases: {
       actives:
-        cases.confirmeds[LAST_ITEM_DATA][city]
-        - (cases.recovereds[LAST_ITEM_DATA][city] + cases.deaths[LAST_ITEM_DATA][city]),
-      deaths: cases.deaths[LAST_ITEM_DATA][city],
-      discarded: cases.discardeds[LAST_ITEM_DATA][city],
-      recovered: cases.recovereds[LAST_ITEM_DATA][city],
-      suspected: cases.suspecteds[LAST_ITEM_DATA][city]
+        confirmeds[lastValue][city]
+        - (recovereds[lastValue][city] + deaths[lastValue][city]),
+      deaths: deaths[lastValue][city],
+      discarded: discardeds[lastValue][city],
+      recovered: recovereds[lastValue][city],
+      suspected: suspecteds[lastValue][city]
     }
   }));
 
-  handleDataSheetCovid(cities, cases, data);
+  for (let value = 0; value < lastValue; value += 1) {
+    cities.forEach((city, index) => {
+      data[index].cases.suspecteds.push(suspecteds[value][city]);
+      data[index].cases.confirmeds.push(confirmeds[value][city]);
+      data[index].cases.recovereds.push(recovereds[value][city]);
 
-  return { data, labels, lastUpdate: format(addDays(new Date(initialDate), LAST_ITEM_DATA), "dd' de 'MMMM' de 'yyyy'", { locale: ptBr }) };
+      const active = confirmeds[value][city] - (recovereds[value][city] + deaths[value][city]);
+      data[index].cases.actives.push(active);
+
+      const confirmedPerDay = value ? confirmeds[value][city] - confirmeds[value - 1][city] : confirmeds[value][city];
+      data[index].cases.confirmedPerDay.push(confirmedPerDay);
+
+      const recoveredPerDay = value ? recovereds[value][city] - recovereds[value - 1][city] : recovereds[value][city];
+      data[index].cases.recoveredPerDay.push(recoveredPerDay);
+    });
+  }
+
+  return data;
 };
 
-module.exports = {
-  handleDataSheetsCovid
+const handleLabelCharts = (maxValue, firstDate) => {
+  const label = [];
+  for (let i = 0; i < maxValue; i += 1) {
+    label.push(format(addDays(firstDate, i), 'MMM dd', { locale: pt }));
+  }
+  return label;
 };
+
+const handleDataSheetsCovid = (cases, initialDate) => {
+  const firstDate = new Date(initialDate);
+  const cities = Object.keys(cases.confirmeds[0]);
+  const lastValue = cases.confirmeds.length - 1;
+
+  return {
+    data: handleDataSheetCovid(cities, cases, lastValue),
+    labels: handleLabelCharts(lastValue, firstDate),
+    lastUpdate: format(addDays(firstDate, lastValue), "dd' de 'MMMM' de 'yyyy'", { locale: pt }) };
+};
+
+module.exports = handleDataSheetsCovid;

@@ -1,5 +1,5 @@
 const path = require('path');
-const { handleDataSheetsCovid } = require('./src/utils/hooksSheetsGeneric');
+const handleDataSheetsCovid = require('./src/utils/hooksSheetsGeneric');
 
 const cities = require('./cities');
 
@@ -558,5 +558,5 @@ exports.createPages = async ({ graphql, actions }) => {
     discardeds: discardedsXanxere,
     deaths: deathsXanxere,
     suspecteds: suspectedsXanxere
-  }, createPage, panelCity, '3-19-2020');
+  }, createPage, panelCity, '3-28-2020');
 };
