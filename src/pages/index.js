@@ -188,7 +188,7 @@ const IndexPage = () => {
   }, [citySearch]);
 
   return (
-    <Layout route="/" city="Painel" contact={false}>
+    <Layout route="/" city="Painel">
       <Container>
         <Title>
           <div>

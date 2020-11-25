@@ -4,7 +4,6 @@ import { FaUsers, FaHome } from 'react-icons/fa';
 import { ThemeProvider } from 'styled-components';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
-import ContactForm from '~/components/ContactForm';
 import SEO from '~/components/SEO';
 
 import { Container, Content, Footer } from './styles';
@@ -14,7 +13,7 @@ import { main } from '~/styles/themes';
 
 import imgMeta from '~/images/covid-share.png';
 
-const LayoutCovid = ({ city, contact, route, children }) => (
+const LayoutCovid = ({ city, route, children }) => (
   <ThemeProvider theme={main}>
     <SEO
       title={`Coronavírus ${city}`}
@@ -34,8 +33,6 @@ const LayoutCovid = ({ city, contact, route, children }) => (
         voltar para o Ínicio
       </AniLink>
 
-      {contact && <ContactForm />}
-
       <Footer>
         <span>
           <a href="https://leonardovargas.me">Leonardo Vargas</a> © 2020. Todos os direitos reservados a população
@@ -47,14 +44,8 @@ const LayoutCovid = ({ city, contact, route, children }) => (
   </ThemeProvider>
 );
 
-LayoutCovid.defaultProps = {
-  contact: true
-};
-
-
 LayoutCovid.propTypes = {
   children: PropTypes.node.isRequired,
-  contact: PropTypes.bool,
   city: PropTypes.string.isRequired,
   route: PropTypes.string.isRequired
 };
