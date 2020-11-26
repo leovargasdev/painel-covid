@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FaUsers, FaHome } from 'react-icons/fa';
+import { FaUsers, FaHome, FaChevronUp } from 'react-icons/fa';
 import { ThemeProvider } from 'styled-components';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import SEO from '~/components/SEO';
 
-import { Container, Content, Footer } from './styles';
+import { Container, Content, Footer, ControllFooter } from './styles';
 
 import GlobalStyle from '~/styles/global';
 import { main } from '~/styles/themes';
@@ -28,11 +28,6 @@ const LayoutCovid = ({ city, route, children }) => (
         {children}
       </Content>
 
-      <AniLink to="/">
-        <FaHome />
-        voltar para o Ínicio
-      </AniLink>
-
       <Footer>
         <span>
           <a href="https://leonardovargas.me">Leonardo Vargas</a> © 2020. Todos os direitos reservados a população
@@ -40,6 +35,16 @@ const LayoutCovid = ({ city, route, children }) => (
         <FaUsers />
       </Footer>
 
+      <ControllFooter>
+        <AniLink to="/">
+          <FaHome size={20} />
+          <span>voltar ao ínicio</span>
+        </AniLink>
+        <button type="button" onClick={() => { document.documentElement.scrollTop = 0; }}>
+          <FaChevronUp size={20} />
+          <span>voltar ao topo</span>
+        </button>
+      </ControllFooter>
     </Container>
   </ThemeProvider>
 );

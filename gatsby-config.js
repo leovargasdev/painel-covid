@@ -59,6 +59,12 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-netlify-cache',
+      options: {
+        cachePublic: false
+      }
+    },
+    {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: [

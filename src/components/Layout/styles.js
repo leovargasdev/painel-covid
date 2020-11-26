@@ -6,45 +6,8 @@ export const Container = styled.div`
   flex-direction: column;
   width: 100%;
 
-  > a {
-    display: flex;
-    align-items: flex-end;
-    margin: 10px auto 20px;
-
-    font-size: 22px;
-    text-transform: uppercase;
-    color: ${({ theme }) => theme.secondary};
-
-    svg {
-      width: 25px;
-      height: 25px;
-      margin-right: 5px;
-      color: ${({ theme }) => theme.secondary};
-    }
-
-    transition-duration: 0.6s;
-
-    &:hover {
-      color: ${({ theme }) => theme.primary};
-      svg {
-        color: ${({ theme }) => theme.primary};
-      }
-    }
-  }
-
   ${media.lessThan('large')`
     padding: 5px 0;
-
-    > a {
-      margin-bottom: 10px;
-
-      font-size: 18px;
-
-      svg {
-        width: 20px;
-        height: 20px;
-      }
-    }
   `}
 `;
 
@@ -100,4 +63,58 @@ export const Footer = styled.footer`
       }
     }
   `}
+`;
+
+export const ControllFooter = styled.div`
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+
+  display: flex;
+  align-items: stretch;
+
+  a {
+    margin-right: 6px;
+  }
+
+  a, button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 5px 6px;
+
+    border: 1px solid transparent;
+    background: ${({ theme }) => theme.box};
+    border-color: rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+
+    transition: all ease 0.8s;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    span {
+      text-align: center;
+      font-size: 18px;
+
+      width: 0px;
+      height: 18px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+
+      transition: width ease 0.8s;
+    }
+
+    &:hover {
+      cursor: pointer;
+      border-color: ${({ theme }) => theme.orange};
+
+      span{
+        width: 130px;
+
+        display: inline;
+        visibility: visible;
+      }
+    }
+  }
 `;

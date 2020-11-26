@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import styled, { css } from 'styled-components';
-import { FaAngleRight, FaSearch } from 'react-icons/fa';
+import styled from 'styled-components';
+import { FaAngleRight } from 'react-icons/fa';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import media from 'styled-media-query';
 import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Layout from '~/components/Layout';
+import InputSearch from '~/components/InputSearch';
 import listCities from '../../cities';
 
 const Container = styled.main`
@@ -38,60 +39,6 @@ const Title = styled.h1`
   `};
 `;
 
-const InputContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  max-width: 600px;
-  padding: 16px;
-  margin-bottom: 10px;
-
-  background: ${({ theme }) => theme.box};
-  border: 2px solid ${({ theme }) => theme.border};
-  border-radius: 8px;
-
-  svg {
-    width: 20px;
-    height: 20px;
-    color: ${({ theme }) => theme.secondary};
-    margin-right: 20px;
-  }
-
-  input {
-    flex: 1;
-    border: 0;
-    font-size: 18px;
-    color: ${({ theme }) => theme.primary};
-    background: transparent;
-
-    ::placeholder {
-      color: ${({ theme }) => theme.secondary};
-    }
-  }
-
-  ${(props) => props.isFocus
-    && css`
-      color: ${({ theme }) => theme.primary};
-      border-color: ${({ theme }) => theme.purple};
-
-      svg {
-        color: ${({ theme }) => theme.purple};
-      }
-  `}
-
-  ${media.lessThan('large')`
-    width: 95%;
-    padding: 12px;
-
-    input {font-size: 14px;}
-    svg {
-      width: 16px;
-      height: 16px;
-    }
-  `};
-`;
-
 const Content = styled.div`
   display: grid;
   width: 100%;
@@ -117,7 +64,7 @@ const City = styled(AniLink)`
   border: 2px solid ${({ theme }) => theme.border};
   border-radius: 6px;
 
-  -webkit-transition: transform 2s; /* transform para o hover out */
+  transition: all ease 0.6s;
 
   span {
     flex: 1;
@@ -133,19 +80,14 @@ const City = styled(AniLink)`
   }
 
   &:hover{
-    border-top-color: ${({ theme }) => theme.purple};
-    border-right-color: ${({ theme }) => theme.purple};
-    border-bottom-color: ${({ theme }) => theme.purple};
-    border-left-color: ${({ theme }) => theme.purple};
+    transform: scale(1.03);
+    border-color: ${({ theme }) => theme.orange};
     background: ${({ theme }) => theme.blueDark};
-
-    transform: translateX(5px);
-    transition: border-top-color .5s linear, border-right-color 1s linear, border-bottom-color 1.5s linear, border-left-color 2s linear, background 1s, transform 1s;
 
     cursor: pointer;
 
-    svg, span {
-      color: ${({ theme }) => theme.purple};
+    svg {
+      color: ${({ theme }) => theme.orange};
       transition: color 2s;
     }
   }
@@ -177,9 +119,9 @@ const IndexPage = () => {
       }
     }
   `);
+
   const originalCities = Object.keys(listCities).sort();
   const [cities, setCities] = useState(originalCities);
-  const [focusInput, setFocusInput] = useState(false);
   const [citySearch, setCitySearch] = useState('');
 
   useEffect(() => {
@@ -197,16 +139,8 @@ const IndexPage = () => {
           Painel do Coronavírus
         </Title>
 
-        <InputContainer isFocus={focusInput}>
-          <FaSearch />
-          <input
-            name="citySearch"
-            placeholder="Digite o nome da cidade"
-            onChange={(e) => setCitySearch(e.target.value.toLowerCase())}
-            onFocus={() => setFocusInput(true)}
-            onBlur={() => setFocusInput(false)}
-          />
-        </InputContainer>
+        <InputSearch onChange={setCitySearch} />
+
         <Content>
           {cities.map((city) => (
             <City to={listCities[city].slug} key={city}>

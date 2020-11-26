@@ -12,6 +12,9 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1;
     background: #191C24;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body, input, button, textarea {
     -webkit-font-smoothing: antialiased; /* Deixa a fonte mais definida */
     font-family: 'Roboto', sans-serif;
