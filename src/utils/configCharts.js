@@ -4,14 +4,12 @@ const options = {
     xAxes: [{
       gridLines: {
         color: 'rgba(255, 255, 255, 0)'
-      },
-      stacked: true
+      }
     }],
     yAxes: [{
       gridLines: {
         color: 'rgba(255, 255, 255, 0.4)'
-      },
-      stacked: true
+      }
     }]
   },
   animation: {

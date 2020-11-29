@@ -6,6 +6,7 @@ export const handleDataSheetCovid = (rows) => {
   const actives = [];
   const suspecteds = [];
   const recovereds = [];
+  const deaths = [];
   const confirmedPerDay = [];
   const recoveredPerDay = [];
   const label = [];
@@ -15,6 +16,7 @@ export const handleDataSheetCovid = (rows) => {
     confirmeds.push(row.confirmed);
     recovereds.push(row.recovered);
     actives.push(row.actives);
+    deaths.push(row.deaths);
 
     confirmedPerDay.push(index ? row.confirmed - confirmeds[index - 1] : row.confirmed);
 
@@ -27,7 +29,7 @@ export const handleDataSheetCovid = (rows) => {
 
   return {
     label,
-    cases: { confirmeds, actives, suspecteds, recovereds, confirmedPerDay, recoveredPerDay }
+    cases: { confirmeds, actives, suspecteds, recovereds, deaths, confirmedPerDay, recoveredPerDay }
   };
 };
 
