@@ -38,7 +38,7 @@ const LayoutCovid = ({ city, route, children }) => (
       <ControllFooter>
         <AniLink to="/">
           <FaHome size={20} />
-          <span>voltar ao ínicio</span>
+          <span>voltar ao início</span>
         </AniLink>
         <button type="button" onClick={() => { document.documentElement.scrollTop = 0; }}>
           <FaChevronUp size={20} />
