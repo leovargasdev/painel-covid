@@ -89,8 +89,7 @@ const handleDataSheetsCovid = ({
   covidSheet,
   agesCasesBar,
   statusCases,
-  casesNeighborhoods,
-  hospitalCases
+  casesNeighborhoods
 }) => {
   const { label, cases } = handleDataSheetCovid(covidSheet);
   return {
@@ -98,7 +97,6 @@ const handleDataSheetsCovid = ({
     cases,
     lastUpdate: handleLastUpdateSheets(covidSheet[covidSheet.length - 1]),
     statusCases,
-    hospitalOccupation: { uti: hospitalCases[0], nursery: hospitalCases[1] },
     agesCasesBar,
     agesCasesLines: handleDataSheetAgesCovid(agesCasesLines),
     casesNeighborhoods

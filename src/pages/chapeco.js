@@ -42,7 +42,6 @@ const CovidPage = () => {
   const {
     allGoogleSheetCovidChapecoAgesRow: { nodes: agesCasesLines },
     allGoogleSheetCovidChapecoRow: { nodes: covidSheet },
-    allGoogleSheetCovidChapecoHospitalRow: { nodes: hospitalCases },
     googleSheetCovidChapecoAgesRow: agesCasesBar,
     googleSheetCovidChapecoRow: statusCases,
     allGoogleSheetCovidChapecoNeighborhoodsRow: { nodes: casesNeighborhoods }
@@ -50,14 +49,14 @@ const CovidPage = () => {
 
   const fonte = 'Vigilância Epidemiológica de Chapecó, 2020';
   const data = handleDataSheetsCovid({
-    agesCasesLines, covidSheet, agesCasesBar, statusCases, casesNeighborhoods, hospitalCases
+    agesCasesLines, covidSheet, agesCasesBar, statusCases, casesNeighborhoods
   });
 
   return (
     <Layout city="Chapecó" route="chapeco">
       <Covid name="Chapecó" route="chapeco" data={data} fonte={fonte} />
       <Content>
-        <HospitalOccupation data={data.hospitalOccupation} />
+        <HospitalOccupation data={data.statusCases} fonte={fonte} />
 
         <ChartsInRow>
           <div style={{ width: 500 }}>

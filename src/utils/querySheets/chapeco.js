@@ -28,6 +28,8 @@ const queries = () => {
         suspected
         woman
         man
+        uti
+        nursery
       }
       allGoogleSheetCovidChapecoAgesRow(sort: {fields: date}) {
         nodes {
@@ -55,16 +57,6 @@ const queries = () => {
       allGoogleSheetCovidChapecoNeighborhoodsRow {
         nodes {
           cases
-        }
-      }
-      allGoogleSheetCovidChapecoHospitalRow(limit: 2) {
-        nodes {
-          available
-          confirmed
-          occupation
-          po
-          suspected
-          total
         }
       }
     }

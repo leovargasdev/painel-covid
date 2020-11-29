@@ -6,27 +6,34 @@ import ContainerCharts from '~/components/Charts/Container';
 
 import { Content, Chart } from './styled';
 
-const HospitalOccupation = ({ data: { uti, nursery } }) => {
+const HospitalOccupation = ({ data: { uti, nursery }, fonte }) => {
+  const UTI_TOTAL = 41;
+  const NURSERY_TOTAL = 69;
+
   const dataUti = {
-    labels: ['Casos confirmados', 'Casos suspeitos', 'Leitos Disponiveis'],
+    labels: ['Leitos Ocupados', 'Leitos Disponiveis'],
     datasets: [{
-      data: [uti.confirmed, uti.suspected, uti.available],
+      data: [uti, UTI_TOTAL - uti],
       borderWidth: 1,
-      backgroundColor: ['#29274C', '#7E52A0', '#D1B1C8']
+      backgroundColor: ['#14274e', '#9ba4b4']
     }]
   };
 
   const dataEnfermaria = {
-    labels: ['Casos confirmados', 'Casos suspeitos', 'Leitos Disponiveis'],
+    labels: ['Leitos Ocupados', 'Leitos Disponiveis'],
     datasets: [{
-      data: [nursery.confirmed, nursery.suspected, nursery.available],
+      data: [nursery, NURSERY_TOTAL - nursery],
       borderWidth: 1,
-      backgroundColor: ['#2F4B26', '#3E885B', '#C0D7BB']
+      backgroundColor: ['#213e3b', '#9ba4b4']
     }]
   };
 
   return (
-    <ContainerCharts title="Ocupação dos Leitos Hospitalares(SUS e Privado)" rangeValues={{ active: false }} fonte="Nota: Ao realizar a contagem da ocupação hospitalar é considerado também os residentes de outros municípios internados em Chapecó-SC.">
+    <ContainerCharts
+      title="Ocupação dos Leitos Hospitalares(Público e Privado)"
+      rangeValues={{ active: false }}
+      fonte={fonte}
+    >
       <Content>
         <Chart>
           <p>Leitos de UTI</p>
@@ -34,9 +41,11 @@ const HospitalOccupation = ({ data: { uti, nursery } }) => {
             options={{ legend: { labels: { fontColor: '#dedede' } } }}
             data={dataUti}
           />
-          <span>Capacidade Total: <strong>{uti.total} leitos</strong></span>
-          <span>Número ocupados: <strong>{uti.occupation} leitos</strong></span>
-          <span>Porcentagem da Ocupação: <strong>{uti.po}%</strong></span>
+          <span>Capacidade Total: <strong>{UTI_TOTAL} leitos</strong></span>
+          <span>Número ocupados: <strong>{uti} leitos</strong></span>
+          <span>
+            Porcentagem da ocupação: <strong> {((uti * 100) / UTI_TOTAL).toFixed(2)}%</strong>
+          </span>
         </Chart>
         <Chart>
           <p>Leitos de Enfermaria</p>
@@ -44,9 +53,12 @@ const HospitalOccupation = ({ data: { uti, nursery } }) => {
             options={{ legend: { labels: { fontColor: '#dedede' } } }}
             data={dataEnfermaria}
           />
-          <span>Capacidade Total: <strong>{nursery.total} leitos</strong></span>
-          <span>Número ocupados: <strong>{nursery.occupation} leitos</strong></span>
-          <span>Porcentagem da Ocupação: <strong>{nursery.po}%</strong></span>
+          <span>Capacidade Total: <strong>{NURSERY_TOTAL} leitos</strong></span>
+          <span>Número ocupados: <strong>{nursery} leitos</strong></span>
+          <span>
+            Porcentagem da ocupação:
+            <strong> {((nursery * 100) / NURSERY_TOTAL).toFixed(2)}%</strong>
+          </span>
         </Chart>
       </Content>
     </ContainerCharts>
@@ -54,7 +66,8 @@ const HospitalOccupation = ({ data: { uti, nursery } }) => {
 };
 
 HospitalOccupation.propTypes = {
-  data: PropTypes.oneOfType([PropTypes.object]).isRequired
+  data: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  fonte: PropTypes.string.isRequired
 };
 
 export default HospitalOccupation;

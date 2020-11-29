@@ -19,7 +19,7 @@ const idsSheets = {
 };
 
 
-['ages', 'neighborhoods', 'hospital'].forEach((title) => cytiesSheets.push({
+['ages', 'neighborhoods'].forEach((title) => cytiesSheets.push({
   resolve: 'gatsby-source-google-sheets',
   options: {
     spreadsheetId: idsSheets.chapeco,
