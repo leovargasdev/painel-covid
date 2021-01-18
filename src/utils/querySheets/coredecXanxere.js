@@ -39,6 +39,7 @@ const queries = () => {
         vargeao
         xanxere
         xaxim
+        data
       }
     }
     allGoogleSheetCuradosCoredecXanxereRow(filter: {totalgeral: {ne: 0}}){
@@ -63,6 +64,7 @@ const queries = () => {
         vargeao
         xanxere
         xaxim
+        data
       }
     }
   }

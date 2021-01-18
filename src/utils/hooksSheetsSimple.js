@@ -1,4 +1,4 @@
-import { format, addDays } from 'date-fns';
+import { format, addDays, compareAsc } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 
 export const handleDataSheetCovid = (rows) => {
@@ -10,6 +10,8 @@ export const handleDataSheetCovid = (rows) => {
   const recoveredPerDay = [];
   const label = [];
 
+  rows.sort((a, b) => compareAsc(new Date(a.date), new Date(b.date)));
+
   rows.forEach((row, index) => {
     suspecteds.push(row.suspected);
     confirmeds.push(row.confirmed);
@@ -20,7 +22,7 @@ export const handleDataSheetCovid = (rows) => {
 
     recoveredPerDay.push(index ? row.recovered - rows[index - 1].recovered : row.recovered);
 
-    label.push(format(new Date(row.date), 'MMM dd', {
+    label.push(format(new Date(row.date), 'dd MMM yy', {
       locale: pt
     }));
   });
@@ -34,7 +36,7 @@ export const handleDataSheetCovid = (rows) => {
 const handleLastUpdateSheets = ({ update = false, date }) => {
   const formatDate = format(addDays(new Date(date), 1), "dd' de 'MMMM' de 'yyyy'", { locale: pt });
 
-  return `${formatDate}, às ${update ? update.replace(':', 'h') : '16:00'}min`;
+  return `${formatDate}, às ${update ? update.replace(':', 'h') : '13:00'}min`;
 };
 
 const handleDataSimpleSheetsCovid = ({ covidSheet, statusCases }) => {

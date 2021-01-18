@@ -24,7 +24,7 @@ export const handleDataSheetCovid = (rows) => {
 
     recoveredPerDay.push(index ? row.recovered - rows[index - 1].recovered : row.recovered);
 
-    label.push(format(new Date(row.date), 'MMM dd', {
+    label.push(format(new Date(row.date), 'dd MMM yy', {
       locale: pt
     }));
   });

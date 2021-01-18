@@ -40,6 +40,7 @@ const queries = () => {
           serraalta
           sulbrasil
           uniaodooeste
+          data
         }
       }
       allGoogleSheetCuradosCoredecChapecoRow(filter: {total: {ne: 0}}) {
@@ -65,6 +66,7 @@ const queries = () => {
           serraalta
           sulbrasil
           uniaodooeste
+          data
         }
       }
     }

@@ -36,6 +36,7 @@ const queries = () => {
         saomiguel
         saudades
         tigrinhos
+        data
       }
     }
     allGoogleSheetCuradosCoredecMaravilhaRow(filter: {total: {ne: 0}}) {
@@ -57,6 +58,7 @@ const queries = () => {
         saomiguel
         saudades
         tigrinhos
+        data
       }
     }
   }

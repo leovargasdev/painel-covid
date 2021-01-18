@@ -38,6 +38,7 @@ const queries = () => {
         saojosedocedro
         saomigueldooeste
         tunapolis
+        data
       }
     }
     allGoogleSheetCuradosCoredecMiguelRow(filter: {total: {ne: 0}}){
@@ -61,6 +62,7 @@ const queries = () => {
         saojosedocedro
         saomigueldooeste
         tunapolis
+        data
       }
     }
   }

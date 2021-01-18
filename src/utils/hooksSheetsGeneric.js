@@ -50,7 +50,7 @@ const handleDataSheetCovid = (cases, lastValue) => {
 const handleLabelCharts = (maxValue, firstDate) => {
   const label = [];
   for (let i = 0; i < maxValue; i += 1) {
-    label.push(format(addDays(firstDate, i), 'MMM dd', { locale: pt }));
+    label.push(format(addDays(firstDate, i), 'dd MMM yy', { locale: pt }));
   }
   return label;
 };
