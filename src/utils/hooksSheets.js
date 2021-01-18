@@ -1,4 +1,4 @@
-import { format, addDays } from 'date-fns';
+import { format, addDays, compareAsc } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 
 export const handleDataSheetCovid = (rows) => {
@@ -10,6 +10,8 @@ export const handleDataSheetCovid = (rows) => {
   const confirmedPerDay = [];
   const recoveredPerDay = [];
   const label = [];
+
+  rows.sort((a, b) => compareAsc(new Date(a.date), new Date(b.date)));
 
   rows.forEach((row, index) => {
     suspecteds.push(row.suspected);

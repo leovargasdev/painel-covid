@@ -7,17 +7,19 @@ const createPageCitiesCoredec = (cases, createPage, panelCity, initialDate = '6-
   const { data, labels, lastUpdate } = handleDataSheetsCovid(cases, initialDate);
 
   data.forEach((item) => {
-    createPage({
-      path: cities[item.city].slug,
-      component: panelCity,
-      context: {
-        lastUpdate,
-        data: item,
-        name: cities[item.city].name,
-        label: labels,
-        slug: cities[item.city].slug
-      }
-    });
+    if (item.city !== 'data') {
+      createPage({
+        path: cities[item.city].slug,
+        component: panelCity,
+        context: {
+          lastUpdate,
+          data: item,
+          name: cities[item.city].name,
+          label: labels,
+          slug: cities[item.city].slug
+        }
+      });
+    }
   });
 };
 
@@ -52,6 +54,7 @@ exports.createPages = async ({ graphql, actions }) => {
           serraalta
           sulbrasil
           uniaodooeste
+          data
         }
       }
       allGoogleSheetCuradosCoredecChapecoRow {
@@ -77,6 +80,7 @@ exports.createPages = async ({ graphql, actions }) => {
           serraalta
           sulbrasil
           uniaodooeste
+          data
         }
       }
       allGoogleSheetDescartadosCoredecChapecoRow {
@@ -102,6 +106,7 @@ exports.createPages = async ({ graphql, actions }) => {
           serraalta
           sulbrasil
           uniaodooeste
+          data
         }
       }
       allGoogleSheetObitosCoredecChapecoRow {
@@ -127,6 +132,7 @@ exports.createPages = async ({ graphql, actions }) => {
           serraalta
           sulbrasil
           uniaodooeste
+          data
         }
       }
       allGoogleSheetSuspeitosCoredecChapecoRow {
@@ -152,6 +158,7 @@ exports.createPages = async ({ graphql, actions }) => {
           serraalta
           sulbrasil
           uniaodooeste
+          data
         }
       }
       allGoogleSheetConfirmadosCoredecMaravilhaRow(filter: {total: {ne: 0}}) {
