@@ -42,7 +42,7 @@ const CovidPageCoredecMiguel = () => {
 
   const statusCases = covidSheet[covidSheet.length - 1];
   const data = handleDataSimpleSheetsCovid({ covidSheet, statusCases });
-  const fonte = 'Coordenadoria Regional da Defesa Civil de São Miguel, 2020';
+  const fonte = 'Coordenadoria Regional da Defesa Civil de São Miguel, 2021';
 
   return (
     <Layout city="Coredec São Miguel do Oeste" route="coredec-sao-miguel-do-oeste">

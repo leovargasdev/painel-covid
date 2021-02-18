@@ -5,10 +5,7 @@ import media from 'styled-media-query';
 import Layout from '~/components/Layout';
 import Covid from '~/components/Covid';
 import {
-  CasesForAges,
-  CasesForAgesLines,
-  HospitalOccupation,
-  CasesForSex
+  HospitalOccupation
 } from '~/components/Charts';
 import HeatMap from '~/components/HeatMap';
 import chapeco from '~/utils/querySheets/chapeco';
@@ -24,19 +21,19 @@ const Content = styled.div`
   `}
 `;
 
-const ChartsInRow = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: row;
+// const ChartsInRow = styled.div`
+//   display: flex;
+//   align-items: center;
+//   flex-direction: row;
 
-  ${media.lessThan('large')`
-    flex-direction: column;
+//   ${media.lessThan('large')`
+//     flex-direction: column;
 
-    div {
-      width: 100%!important;
-    }
-  `}
-`;
+//     div {
+//       width: 100%!important;
+//     }
+//   `}
+// `;
 
 const CovidPage = () => {
   const {
@@ -47,7 +44,7 @@ const CovidPage = () => {
     allGoogleSheetCovidChapecoNeighborhoodsRow: { nodes: casesNeighborhoods }
   } = JSON.parse(chapeco());
 
-  const fonte = 'Vigilância Epidemiológica de Chapecó, 2020';
+  const fonte = 'Vigilância Epidemiológica de Chapecó, 2021';
   const data = handleDataSheetsCovid({
     agesCasesLines, covidSheet, agesCasesBar, statusCases, casesNeighborhoods
   });
@@ -58,14 +55,14 @@ const CovidPage = () => {
       <Content>
         <HospitalOccupation data={data.statusCases} fonte={fonte} />
 
-        <ChartsInRow>
+        {/* <ChartsInRow>
           <div style={{ width: 500 }}>
             <CasesForSex data={data.statusCases} fonte={fonte} />
           </div>
           <CasesForAges data={data.agesCasesBar} fonte={fonte} />
         </ChartsInRow>
 
-        <CasesForAgesLines data={data.agesCasesLines} fonte={fonte} />
+        <CasesForAgesLines data={data.agesCasesLines} fonte={fonte} /> */}
         <HeatMap lat={-27.0994261} lng={-52.6383303} zoom={12} data={data.casesNeighborhoods} />
       </Content>
     </Layout>

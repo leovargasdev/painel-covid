@@ -43,7 +43,7 @@ const CovidPageCoredecXanxere = () => {
 
   const statusCases = covidSheet[covidSheet.length - 1];
   const data = handleDataSimpleSheetsCovid({ covidSheet, statusCases });
-  const fonte = 'Coordenadoria Regional da Defesa Civil de Xanxerê, 2020';
+  const fonte = 'Coordenadoria Regional da Defesa Civil de Xanxerê, 2021';
 
   return (
     <Layout city="Coredec Xanxerê" route="coredec-xanxere">
