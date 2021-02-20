@@ -30,7 +30,7 @@ const LayoutCovid = ({ city, route, children }) => (
 
       <Footer>
         <span>
-          <a href="https://leonardovargas.me">Leonardo Vargas</a> © {new Date().getFullYear()}. Todos os direitos reservados a população
+          <a target="_new" href="https://leonardovargas.me">Leonardo Vargas</a> © {new Date().getFullYear()}. Todos os direitos reservados a população
         </span>
         <FaUsers />
       </Footer>
