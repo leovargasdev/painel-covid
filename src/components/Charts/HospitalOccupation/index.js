@@ -7,8 +7,8 @@ import ContainerCharts from '~/components/Charts/Container';
 import { Content, Chart } from './styled';
 
 const HospitalOccupation = ({ data: { uti, nursery }, fonte }) => {
-  const UTI_TOTAL = 72;
-  const NURSERY_TOTAL = 90;
+  const UTI_TOTAL = 85;
+  const NURSERY_TOTAL = 96;
 
   const dataUti = {
     labels: ['Leitos Ocupados', 'Leitos Disponiveis'],
