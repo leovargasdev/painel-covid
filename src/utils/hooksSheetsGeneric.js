@@ -3,7 +3,7 @@ const { format, addDays } = require('date-fns');
 const pt = require('date-fns/locale/pt');
 
 const handleDataSheetCovid = (cases, lastValue) => {
-  const { confirmeds, recovereds, suspecteds, deaths, discardeds } = cases;
+  const { confirmeds, recovereds, deaths } = cases;
   const cities = Object.keys(confirmeds[0]);
 
   const data = cities.map((city) => ({
@@ -21,15 +21,15 @@ const handleDataSheetCovid = (cases, lastValue) => {
         confirmeds[lastValue][city]
         - (recovereds[lastValue][city] + deaths[lastValue][city]),
       deaths: deaths[lastValue][city],
-      discarded: discardeds[lastValue][city],
+      discarded: 0,
       recovered: recovereds[lastValue][city],
-      suspected: suspecteds[lastValue][city]
+      suspected: 0
     }
   }));
 
   for (let value = 0; value < lastValue; value += 1) {
     cities.forEach((city, index) => {
-      data[index].cases.suspecteds.push(suspecteds[value][city]);
+      data[index].cases.suspecteds.push(0);
       data[index].cases.confirmeds.push(confirmeds[value][city]);
       data[index].cases.recovereds.push(recovereds[value][city]);
 

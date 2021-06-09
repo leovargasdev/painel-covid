@@ -1,8 +1,5 @@
 module.exports = {
   chapeco: { name: 'Chapecó', slug: 'chapeco' },
-  // blumenau: { name: 'Blumenau', slug: 'blumenau' },
-  patobranco: { name: 'Pato Branco', slug: 'pato-branco' },
-  oeste: { name: 'Oeste Catarinense', slug: 'oeste-catarinense' },
 
   coredecChapeco: { name: 'Coordenadoria de Chapecó', slug: 'coredec-chapeco' },
   coredecMaravilha: { name: 'Coordenadoria de Maravilha', slug: 'coredec-maravilha' },
